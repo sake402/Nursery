@@ -1,0 +1,56 @@
+@inherits BaseComponent
+
+<div class=" wx-100 pdb-10">
+    <div class="pd mg-a text-center stack">
+        <div class=" mg-a bg-bl-gray-dark hx-15 wx-15 clip  corner-5">
+            <img class="mawp-10 mahp-10" src="_content/Library/css/rider.png">
+        </div>
+        <span class=" fw-bold mgt">Ade Koisk A.</span>
+        <div class="mg">
+            <div class="bg-warning inline corner-5 pdx-2 pdy-1 wx-04 ">
+                <i class="mdi mdi-star"></i>
+                12
+            </div>
+            <div class="mg bg-success shadow inline corner-5 pdx-2 pdy-1 wx-04">
+                <i class="mdi mdi-star"></i>
+                12
+            </div>
+            <div class="bg-secondary shadow inline corner-5 pdx-2 pdy-1 wx-04 ">
+                <i class="mdi mdi-star"></i>
+                12
+            </div>
+        </div>
+        <div class="mg-a">
+            <div class="flex">
+                <Ratings Rating="5" Theme="Theme.Warning"></Ratings><small class="text-italic op-8">(150)</small>
+            </div>
+            <span class="op-8 text-italic"><small> i am egocentric</small></span>
+        </div>
+
+    </div>
+    <div class="bd pd">
+        <div class="row">
+            <div class=" fw-bold col-3 text-left">
+                Asking Price
+            </div>
+            <div class="text-right col-7 fw-bold cl-warning">
+                #1,500
+            </div>
+        </div>
+        <div class="row mgt">
+            <div class="fw-bold  col-3 text-left">
+                Pitch
+            </div>
+            <div class=" col-7 op-7 text-italic">
+                <small>I will deliver goods in 30mins since my bike is hyperloop and even has teleportation
+                    mode</small>
+            </div>
+        </div>
+    </div>
+    <h4 class="mg">Past Reviews</h4>
+    <DataList TModel="int" Models="new int[]{ 1,2}" Features="DataListFeatures.Default|DataListFeatures.Bordered"
+        Context="user" Class="bdb">
+        <CommunityAccountReview></CommunityAccountReview>
+    </DataList>
+
+</div>

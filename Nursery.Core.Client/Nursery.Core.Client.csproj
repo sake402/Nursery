@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="LivingThing.Core.IdentityManager.Client.Blazor" Version="1.0.1"></PackageReference>
+		<PackageReference Include="LivingThing.Core.Frameworks.Client.Blazor" Version="1.0.1"></PackageReference>
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nursery.Core.Common\Nursery.Core.Common.csproj" />
+  </ItemGroup>
+
+</Project>

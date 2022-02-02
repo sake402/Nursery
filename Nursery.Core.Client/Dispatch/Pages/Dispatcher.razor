@@ -1,0 +1,229 @@
+﻿@page "/Dispatch/Dispatcher"
+<WizardSteps InitialViewIndex="0">
+    <WizardStep Context="_">
+        <SideBar Side="SideBarSide.Top" bar-class="bg-card pd bdb">
+            <Bar>
+                <Carousel>
+                    @for (int i = 0; i < 10; i++)
+                    {
+                        <Button Features="ButtonFeatures.Default&~ButtonFeatures.Shadow" Class="bd fw-bold mgr">
+                            &lt;30km
+                        </Button>
+                    }
+                </Carousel>
+            </Bar>
+            <ChildContent>
+                <DataList TModel="int" Features="DataListFeatures.Default|DataListFeatures.Bordered" PadContent="4"
+                    Models="new int[]{1,2,3}">
+                    <DataListDefaultItemTemplate Theme="Theme.Warning" Title="Eti-Osa to Iyana-Ipaja"
+                        Icon="mdi mdi-bike cl-error" Description="20km as crow flies, 30km road distance">
+                        <div class="row mgt-3">
+                            <div class="col-3">
+                                <em>Light Load(1kg)</em>
+                            </div>
+                            <div class="col-7 text-right">
+                                <em>Posted by <NavLink>ss10</NavLink> 10m ago, <span class="cl-warning">50
+                                        bids</span></em>
+                            </div>
+                        </div>
+                    </DataListDefaultItemTemplate>
+                </DataList>
+            </ChildContent>
+        </SideBar>
+    </WizardStep>
+    <WizardStep Context="_">
+        <DataListDefaultItemTemplate Theme="Theme.Warning" Class="pd" Title="Eti-Osa to Iyana-Ipaja"
+            Icon="mdi mdi-bike cl-error" Description="20km as crow flies, 30km road distance">
+            <div class="row pdx pdb bdb">
+                <div class="col-3">
+                    <em>Light Load(1kg)</em>
+                </div>
+                <div class="col-7 text-right">
+                    <em>Posted by <NavLink>ss10</NavLink> 10m ago, <span class="cl-warning">50 bids</span></em>
+                </div>
+            </div>
+        </DataListDefaultItemTemplate>
+        <div class="hx-2">
+            <LeafletMap></LeafletMap>
+        </div>
+        <div class="pdx-5">
+            <h3>Place your bid</h3>
+            <div class="row">
+                <div class="col-a flex">
+                    <b class="mg-a">#</b>
+                </div>
+                <div class="col-10">
+                    <EditForm Model="new object()" Context="__" Class="flex">
+                        <InputEditor TValue="string" @bind-Value="AskingPrice" Class="bg-primary-01 fsz-25"
+                            Theme="Theme.Primary" PlaceHolder="Your asking price"
+                            Features="(InputEditorFeatures.Default&~InputEditorFeatures.BorderBottom)|InputEditorFeatures.PlaceHolder">
+                        </InputEditor>
+                        <Button Class="fsz-30 wx-07 mdi mdi-check corner-r-3" Theme="Theme.Primary"
+                            Features="(ButtonFeatures.Default|ButtonFeatures.Large)&~ButtonFeatures.Corner"></Button>
+                    </EditForm>
+                </div>
+            </div>
+            <em class="d-block mgt">Please note that the platform charges 10% of your bidding</em>
+            <h3 class="mgb-2">Your Pitch</h3>
+            <div>
+                <EditForm Model="new object()" Context="__">
+                    <InputEditor TValue="string" @bind-Value="Pitch" Type="InputType.TextArea" Class="bg-primary-01 "
+                        Theme="Theme.Primary" PlaceHolder="Convince your contractor you are the best man for the job"
+                        Features="(InputEditorFeatures.Default&~InputEditorFeatures.BorderBottom)|InputEditorFeatures.PlaceHolder">
+                    </InputEditor>
+                </EditForm>
+            </div>
+            <h3>Biddings (Average #1200)</h3>
+            <DataList Models="new int[]{1,2,3,4,5}" Context="a">
+                <CommunityAccountBidListItem></CommunityAccountBidListItem>
+            </DataList>
+        </div>
+    </WizardStep>
+    <WizardStep>
+        <h3 class="mgx">My Contracts</h3>
+        <Tabs Theme="Theme.Primary" TabLocation="SideBarSide.Top" InitialViewIndex="0">
+            <Tab Context="_" Class="pos-rel">
+                <Title><b>Won (2)</b></Title>
+                <ChildContent>
+                    @if (true)
+                    {
+                        <div class="bg-dark-08 cl-white flex pos-abs t-0 r-0 l-0 b-0 z-2">
+                            <div class="mg-a  text-center">
+                                <i class="mdi mdi-loading cl-success fse-5"></i>
+                                <h3>Eti Osa to Iyana Iyana-Ipaja<br>Waiting for Payment...</h3>
+                                <p>Expires in <span class="cl-warning fw-bold">00:05:20</span></p>
+                                <Button Class="mdi mdi-cancel" Theme="Theme.Warning"
+                                Features="ButtonFeatures.Default&~ButtonFeatures.Shadow"
+                                OnClicked="@(()=>{})">Cancel Contract</Button>
+                            </div>
+                        </div>
+                    }
+                    <DataList TModel="int" Context="_____" Models="new int[]{1, 2, 3, 4}"
+                        Features="DataListFeatures.Default" li-class="mgt-10">
+                        <DataListDefaultItemTemplate Icon="mdi mdi-bike" Title="Lagos to Ibadan"
+                            Description="Dispatch is 50m away from delivery ETA 2m">
+                            <ChildContent>
+                                <div class="row pdx">
+                                    <div class="col-5">
+                                        <em>Light Load(10kg)</em>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                        <em>Posted 10m ago,</em> <span class="cl-warning">23 bids</span>
+                                    </div>
+                                </div>
+                                <div class="row bg-card pd mgt-1">
+                                    <div class="col-5 mg-a">
+                                        <em>Expiry: 00:05:30</em>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                        <div>
+                                            <Button Theme="Theme.Primary" Class="mgr">Accept</Button>
+                                            <Button Theme="Theme.Error">Decline</Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ChildContent>
+                            <SubTitleTemplate>
+                                <span class="cl-warning fw-bold text-right">#1500</span>
+                            </SubTitleTemplate>
+                        </DataListDefaultItemTemplate>
+                    </DataList>
+                </ChildContent>
+            </Tab>
+            <Tab Context="_">
+                <Title><b>Pending (4)</b></Title>
+                <ChildContent>
+                    <DataList TModel="int" li-class="pd mgt" Context="______" Models="new int[]{1, 2, 3, 4}"
+                        Features="DataListFeatures.Default">
+                        <DataListDefaultItemTemplate Icon="mdi mdi-bike" Title="Lagos to Ibadan"
+                            Description="Dispatch is 50m away from delivery ETA 2m">
+                            <ChildContent>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <em>Light Load(10kg)</em>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                        <em>Posted 10m ago,</em> <span class="cl-warning">23 bids</span>
+                                    </div>
+                                </div>
+                            </ChildContent>
+                            <SubTitleTemplate>
+                                <span class="cl-warning fw-bold text-right">#1500</span>
+                            </SubTitleTemplate>
+                        </DataListDefaultItemTemplate>
+                    </DataList>
+                </ChildContent>
+            </Tab>
+            <Tab Context="_">
+                <Title><b>Closed</b></Title>
+                <ChildContent>
+                    <DataList TModel="int" li-class="pd mgt" Context="______" Models="new int[]{1, 2, 3, 4}"
+                        Features="DataListFeatures.Default">
+                        <DataListDefaultItemTemplate Icon="mdi mdi-bike" Title="Lagos to Ibadan"
+                            Description="Dispatch is 50m away from delivery ETA 2m">
+                            <ChildContent>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <em>Light Load(10kg)</em>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                        <em>Posted 10m ago,</em> <span class="cl-warning">23 bids</span>
+                                    </div>
+                                </div>
+                            </ChildContent>
+                            <SubTitleTemplate>
+                                <span class="cl-warning fw-bold text-right">#1500</span>
+                            </SubTitleTemplate>
+                        </DataListDefaultItemTemplate>
+                    </DataList>
+                </ChildContent>
+            </Tab>
+        </Tabs>
+    </WizardStep>
+    <WizardStep Class="pos-rel" Context="_">
+        <WizardSteps InitialViewIndex="0">
+            <WizardStep ButtonNext="Picked Up">
+                @if (false)
+                {
+                    <CommunityAwaitOverlay Title="Wating for pickup confirmation from contractor"></CommunityAwaitOverlay>
+                }
+                <div class="text-center pd">
+                        <h3 class="mg-0">
+                            Initial Payment received!!!
+                        </h3>
+                        <h3>Please proceed to Eti-Osa to pickup the dispatch</h3>
+                    </div>
+                    <div class="hx-3">
+                        <LeafletMap>
+
+                        </LeafletMap>
+                    </div>
+                    <div class="pd">
+                    <ProgressBar Theme="Theme.Primary"
+                        BackgroundTheme="Theme.White" 
+                        Progress="50" 
+                        Class="corner clip"
+                        Height="10"></ProgressBar>
+                    <h2 class="cl-primary text-center">50%</h2>
+                    <PropertySheet li-class="pdy" Target="@(new Dictionary<string, object>{["Pickup"]="21 Aje Street", ["Destination"]="31, Benson Street", ["ETA"]="20min" })">
+                    </PropertySheet>
+                    </div>
+            </WizardStep>
+            <WizardStep Name="Dispatching" Class="pd" ButtonNext="Delivered">
+                @if (false)
+                {
+                    <CommunityAwaitOverlay Title="Please turn on your phone gps"></CommunityAwaitOverlay>
+                }
+                <h3 class="mg-0">
+                    Dispatching to Eti-Osa
+                </h3>
+                <div class="hx-3">
+                    <LeafletMap>
+
+                    </LeafletMap>
+                </div>
+                <h3>ETA <span>20 min</span></h3>
+            </WizardStep>
+        </WizardSteps>
+    </WizardStep>
+</WizardSteps>

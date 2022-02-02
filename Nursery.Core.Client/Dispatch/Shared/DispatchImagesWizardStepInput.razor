@@ -1,0 +1,22 @@
+@inherits BaseInputFieldProvider<DispatchImagesWizardStep>
+@using Nursery.Core.Client.Dispatch.Models
+@using LivingThing.Core.Frameworks.Client.Interface
+@using LivingThing.Core.Frameworks.Client.Components.FileUpload
+
+<DataList @bind-Models="Value.Images"
+        Features="DataListFeatures.Default|DataListFeatures.Delete"
+        Context="image"
+        GridWidth="150"
+        GridGap="10">
+    <div class="text-center hx-15 bd corner-3 bg-card flex">
+        <img alt="package" 
+            class="mawp-10 mahp-10 mg-a" 
+            src="_content/Library/css/package.png">
+    </div>
+</DataList>
+
+<FileUpload OnFileSelected="FileSelected">
+    <div class="mgt text-center bd corner-3 bg-card mgb-5 flex">
+        <i class="mdi mdi-image-plus fse-10 cl-primary mg-a"></i>
+    </div>
+</FileUpload>

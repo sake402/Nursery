@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="LivingThing.Core.Frameworks.Server" Version="1.0.1"/>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include="..\Nursery.Core.Client\Nursery.Core.Client.csproj" />
+    <ProjectReference Include="..\Nursery.Core.Common\Nursery.Core.Common.csproj" />
+  </ItemGroup>
+
+</Project>

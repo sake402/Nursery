@@ -1,0 +1,16 @@
+@inherits BaseContainer
+
+<div class="bg-dark-08 cl-white flex pos-abs t-0 r-0 l-0 b-0 z-2">
+    <div class="mg-a  text-center">
+        <i class="mdi mdi-loading cl-success fse-5"></i>
+        <h4>@Title</h4>
+        <p>@Description</p>
+        <Button Class="mdi mdi-cancel" Theme="Theme.Warning" Features="ButtonFeatures.Default&~ButtonFeatures.Shadow"
+            OnClicked="@(()=>{})">Cancel Contract</Button>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string Description { get; set; }
+}

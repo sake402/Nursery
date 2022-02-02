@@ -1,0 +1,747 @@
+﻿@page "/"
+@using LivingThing.Core.Frameworks.Common.String
+
+<WizardSteps InitialViewIndex="0">
+    <WizardStep Context="_">
+        <div class="stack hf">
+            <div class="bg-tb-secondary-primary pdt-10 pdx-10 pdb-30">
+                <div class="row">
+                    <div class="col-a">
+                        <div class="hx-07 wx-07 bd round">
+
+                        </div>
+                    </div>
+                    <div class="col-10 stack mgl">
+                        <h4 class="mgt-a mgb-0 op-8">Hello</h4>
+                        <h3 class="mgb-a mgt-2">Almond Tutu</h3>
+                    </div>
+                    <div class="col-a">
+                        <Button Class="mdi mdi-bell fsz-20" Features="ButtonFeatures.Flat"></Button>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="op-9">Wallet Balance</p>
+                    <h1 class="mg-0">$123,456.00</h1>
+                </div>
+                <div class="mgt-10 flex flex-spacebetween-x pos-rel">
+                    <div class="stack text-center">
+                        <Button Class="mgx-a hx-05 wx-05 mdi mdi-send fsz-25 bg-tertiary-05 corner-3 pd"
+                            Features="ButtonFeatures.Flat"></Button>
+                        <span class="mg-1">Send</span>
+                    </div>
+                    <div class="stack text-center">
+                        <Button Class="mgx-a hx-05 wx-05 mdi mdi-plus fsz-25 bg-tertiary-05 corner-3 pd"
+                            Features="ButtonFeatures.Flat"></Button>
+                        <span class="mg-1">TopUp</span>
+                    </div>
+                    <div class="stack text-center">
+                        <Button Class="mgx-a hx-05 wx-05 mdi mdi-chart-line fsz-25 bg-tertiary-05 corner-3 pd"
+                            Features="ButtonFeatures.Flat"></Button>
+                        <span class="mg-1">History</span>
+                    </div>
+                    <div class="stack">
+                        <Popup pop-class="bg-card cl-text wf shadow corner-b">
+                            <ChildContent>
+                                <Button Class="mgx-a hx-05 wx-05 mdi mdi-dots-horizontal fsz-25 bg-tertiary-05 corner-3 pd"
+                                        Features="ButtonFeatures.Flat"></Button>
+                            </ChildContent>
+                            <Pop>
+                                <Menu Context="__" Features="MenuFeatures.DefaultVH|MenuFeatures.Selectable|MenuFeatures.Pad">
+                                    <MenuItem>
+                                        <IconLeft>
+                                            <i class="mdi mdi-plus"></i>
+                                        </IconLeft>
+                                        <ChildContent Context="___">
+                                            Fund My Wallet
+                                        </ChildContent>
+                                    </MenuItem>
+                                    <MenuItem>
+                                        <IconLeft>
+                                            <i class="mdi mdi-cash"></i>
+                                        </IconLeft>
+                                        <ChildContent Context="___">
+                                            Withdraw
+                                        </ChildContent>
+                                    </MenuItem>
+                                </Menu>
+                            </Pop>
+                        </Popup>
+                        <span class="mg-1">More</span>
+                    </div>
+                </div>
+            </div>
+            <div class="fill bg-card mgt--20 shadow pdt-10 pdx corner-t-7 scroll">
+                <h3 class="mgt-0">Recent Transactions</h3>
+                <DataList TModel="int" Models="new int[]{1,2,3,4,5,6,7,8,9}" li-class="pdy-3" Context="data">
+                    <div class="row">
+                        <div class="col-a">
+                            <div class="hx-05 wx-05 corner-2 bg-secondary-04 flex">
+                                <h1 class="mg-a fsz-40 cl-white">N</h1>
+                            </div>
+                        </div>
+                        <div class="col-10 pdl stack">
+                            <div class="row mgt-a">
+                                <div class="col-10">
+                                    <h3 class="mg-0 nowrap">Transaction Title</h3>
+                                </div>
+                                <div class="col-a @(((data.Model&1)!=0)?"cl-error":"cl-success")">
+                                    <h3 class="mg-0 nowrap">-$120.00</h3>
+                                </div>
+                            </div>
+                            <div class="row mgb-a">
+                                <div class="col-10">
+                                    <p class="mgt-0 mgb-a op-6">Transaction Description</p>
+                                </div>
+                                <div class="col-a">
+                                    <p class="mgt-0 mgb-a op-6">12/12/2022</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </DataList>
+            </div>
+        </div>
+    </WizardStep>
+    <WizardStep Context="_" Class="pd">
+        <h2 class="text-center">Trnsaction History</h2>
+        <div class="row mgy-10">
+            <div class="col-7">
+                <h3 class="mg-0">Category</h3>
+            </div>
+            <div class="col-3">
+                <Popup Relative="true" pop-class="bg-card shadow pd corner-b">
+                    <ChildContent>
+                        <div class="row cl-primary">
+                            <span class="mgr-1">ThisWeek</span>
+                            <i class="mdi mdi-chevron-down"></i>
+                        </div>
+                    </ChildContent>
+                    <Pop Context="__">
+                        <Menu Context="___"
+                            Features="MenuFeatures.DefaultVH|MenuFeatures.Pad|MenuFeatures.Selectable|MenuFeatures.Bordered">
+                            <MenuItem Class="nowrap">
+                            This Week
+                            </MenuItem>
+                            <MenuItem Class="nowrap">
+                            Last Week
+                            </MenuItem>
+                        </Menu>
+                    </Pop>
+                </Popup>
+            </div>
+        </div>
+        <Accordion Exclusive="true">
+            @for (int i = 0; i < 5; i++)
+            {
+                <AccordionTab Class="mgb-10 bg-card pd corner-3 shadow-5">
+                    <Header Context="selected">
+                        <div class="row">
+                            <div class="col-a">
+                                <div class="hx-05 wx-05 round bg-error flex">
+                                    <i class="mg-a mdi mdi-send fsz-25"></i>
+                                </div>
+                            </div>
+                            <div class="col-10 mgl stack">
+                                <h3 class="mgy-a">Transfers</h3>
+                            </div>
+                            <div class="col-a stack">
+                                <Button Features="ButtonFeatures.Flat|ButtonFeatures.PropagateClick"
+                                Class="@($"mdi mdi-chevron-{(selected?"up":"down")} fsz-20 mgy-a")"></Button>
+                            </div>
+                        </div>
+                    </Header>
+                    <ChildContent>
+                        <DataList TModel="int" Models="new int[]{1,2,3,4}" li-class="pdy-3" Class="bdt mgt pdt"
+                        Context="data">
+                            <div class="row">
+                                <div class="col-a">
+                                    <div class="hx-05 wx-05 corner-2 bg-secondary-04 flex">
+                                        <h1 class="mg-a fsz-40 cl-white">N</h1>
+                                    </div>
+                                </div>
+                                <div class="col-10 pdl stack">
+                                    <div class="row mgt-a">
+                                        <div class="col-10">
+                                            <h3 class="mg-0 nowrap">Transaction Title</h3>
+                                        </div>
+                                        <div class="col-a @(((data.Model&1)!=0)?"cl-error":"cl-success")">
+                                            <h3 class="mg-0 nowrap">-$120.00</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row mgb-a">
+                                        <div class="col-10">
+                                            <p class="mgt-0 mgb-a op-6">Transaction Description</p>
+                                        </div>
+                                        <div class="col-a">
+                                            <p class="mgt-0 mgb-a op-6">12/12/2022</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </DataList>
+                    </ChildContent>
+                </AccordionTab>
+            }
+        </Accordion>
+    </WizardStep>
+    <WizardStep Context="_">
+        <div class="bg-gray-05 hx-2">
+            @{
+                var xbuilder = SVGBuilder.Create(50, 25, DimensionUnit.None, true);
+                var pathBuilder = xbuilder.PathMoveTo(0, 0);
+                pathBuilder.PathLineTo(1, 0)
+                .PathLineTo(1, 1);
+                double x = 1, y = 1;
+                for (int i = 0; i < 5; i++)
+                {
+                    var lx = x - 0.2;
+                    var ly = y + 0.1;
+                    x = 1 - (i * 0.25);
+                    y = 1 - (i * 0.1);
+                    pathBuilder.PathQuadraticTo(x, y, new UnitlessPoint() { X = lx, Y = ly });
+                }
+                pathBuilder.PathClose().Builder
+                .FillColor("#FF880080")
+                .StrokeWidth(1);
+                xbuilder.Doughnut(new DoughnutModel()
+                {
+                    StrokeWidth = 2.5,
+                    Size = 50,
+                    Radius = 0.2,
+                    BackgroundColor = "#FFFFFF80",
+                    Sections = new DoughnutSection[]
+                {
+            new DoughnutSection()
+            {
+            Proportion = 0.5,
+            Color = "#00AEFF"
+            }
+                }
+                });
+                xbuilder.Text("+123")
+                .BaseLine(BaseLine.Middle)
+                .TextAnchor(TextAnchor.Middle)
+                .FillColor("#FFF")
+                .Attribute("font-size", "1em");
+            }
+            @xbuilder.Build()
+        </div>
+        <div class="row pos-abs t-0 l-0 r-0 z-2 mgt-10 mgx">
+            <div class="col-8">
+                <h3 class="mg-0">Overview</h3>
+            </div>
+            <div class="col-2 text-right">
+                <Popup Relative="true" pop-class="bg-card shadow pd corner-b">
+                    <ChildContent>
+                        <div class="row cl-primary">
+                            <span class="mgr-1">Yearly</span>
+                            <i class="mdi mdi-chevron-down"></i>
+                        </div>
+                    </ChildContent>
+                    <Pop Context="__">
+                        <Menu Context="___"
+                            Features="MenuFeatures.DefaultVH|MenuFeatures.Pad|MenuFeatures.Selectable|MenuFeatures.Bordered">
+                            <MenuItem Class="nowrap">
+                            Yearly
+                            </MenuItem>
+                            <MenuItem Class="nowrap">
+                            Monthly
+                            </MenuItem>
+                        </Menu>
+                    </Pop>
+                </Popup>
+            </div>
+        </div>
+        <div class="pd">
+            <div class="flex flex-spacebetween-x">
+                @for (int i = 0; i < 2; i++)
+                {
+                    <div
+                    class="shadow stack bg-tb-@(i == 0 ? "secondary-primary":"error-fatal") corner-3 pd miwx-15 mihx-1">
+                        <div>
+                            <div class="hx-03 wx-03 bg-white-03 round mdi mdi-arrow-down mgc-a flex"></div>
+                        </div>
+                        <h3 class="op-8 mgb-0">@(i == 0?"Income":"Expenses")</h3>
+                        <h2 class="op-8 mgt-1">$123,456.00</h2>
+                    </div>
+                }
+            </div>
+            <Themable Context="theme">
+                <Chart TModel="int" Class="mgt" Data="new int[]{1,2,3,4,5,6,7}" Height="300" XAxis="(x,i)=>i.ToString()"
+                    Type="ChartType.Bar" Features="ChartFeatures.Default&~ChartFeatures.XGrid">
+                    <ChartYAxis TModel="int" DataPoint="(x,i)=>(double)x" Label="Income" BackgroundColor="#00AEFF">
+                    </ChartYAxis>
+                    <ChartYAxis TModel="int" DataPoint="(x,i)=>(double)x" Label="Expenses" BackgroundColor="#FCAC00">
+                    </ChartYAxis>
+                </Chart>
+            </Themable>
+            <div class="row mgt-10 bg-tb-fatal-error pd corner-5">
+                <div class="col-a">
+                    <div class="bg-white-03 hx-07 wx-07 corner-2 pd-2">
+                        @{
+                            var builder = SVGBuilder.Create(50, 50, DimensionUnit.None, true);
+                            builder.Doughnut(new DoughnutModel()
+                            {
+                                Size = 50,
+                                BackgroundColor = "#FFFFFF20",
+                                Sections = new DoughnutSection[]
+                            {
+                                new DoughnutSection()
+                                {
+                                Proportion = 0.8,
+                                Color = "#FFFFFF"
+                                }
+                            }
+                            });
+                            builder.MoveTo(0.5,
+                            0.5).Text("50%").TextAnchor(TextAnchor.Middle).BaseLine(BaseLine.Middle).FillColor("#FFF").StrokeColor("#FFF");
+                        }
+                        @builder.Build()
+                    </div>
+                </div>
+                <div class="col-10 mgl stack">
+                    <h3 class="mgb-1 mgt-a">Low income this month</h3>
+                    <p class="mgt-0 mgb-a op-9">Your income this month drops by 50%, expenses is up by 10%</p>
+                </div>
+                <div class="col-a stack mgl">
+                    <i class="mgy-a mdi mdi-chevron-right fsz-25"></i>
+                </div>
+            </div>
+        </div>
+    </WizardStep>
+    <WizardStep Context="_" Class="pd">
+        <DataList TModel="int" ItemName="Service"
+            Features="DataListFeatures.Default|DataListFeatures.Search|DataListFeatures.LeftCustom"
+            Models="new int[]{1,2,3,4,5,6,7,8,9}" GridWidth="70" GridGap="10" li-class="text-center">
+            <CustomToolBar>
+                <h3>Pay for Service</h3>
+            </CustomToolBar>
+            <ChildContent>
+                <div class="bg-card pd shadow corner-3 flex hx-07 wx-07">
+                    <i class="mdi mdi-star fsz-45 mg-a"></i>
+                </div>
+                <span class="mgt-2 d-i-block">
+                    Electricity
+                </span>
+            </ChildContent>
+        </DataList>
+    </WizardStep>
+    <WizardStep Context="_" Class="pd">
+        <h3>Paying for Electricity</h3>
+        <div class="bg-card pd corner-3 shadow">
+            <DataListDefaultItemTemplate Icon="mdi mdi-run" Title="Service Name" SubTitle="In Wallet - #500.00"
+                Description="Choose a package"
+                Features="DataListDefaultItemTemplateFeatures.Default|DataListDefaultItemTemplateFeatures.RoundedImage">
+            </DataListDefaultItemTemplate>
+        </div>
+        <div class="row mgy">
+            <div class="col-a stack">
+                <Button Class="mgy-a bd mgr"
+                    Features="ButtonFeatures.Flat|ButtonFeatures.Round|ButtonFeatures.Shadow">&lt;&lt;</Button>
+            </div>
+            <div class="col-10 stack">
+                <h3 class="mgy-a">
+                    Choose a Package
+                </h3>
+            </div>
+        </div>
+        <DataList TModel="int" Models="new int[]{1,2,3,4}" li-class="pdb-7">
+            <ChildContent>
+                <div class="bg-card pd corner-3 shadow">
+                    <div class="row">
+                        <div class="col-a">
+                            <div class="hx-04 wx-04 flex corner-2 bg-primary">
+                                <i class="mdi mdi-star mg-a fsz-25"></i>
+                            </div>
+                        </div>
+                        <div class="col-10 flex mgl">
+                            <h3 class="mgy-a">Simple Package</h3>
+                        </div>
+                        <div class="col-a flex">
+                            <span class="mg-a">
+                                #5,000.00
+                            </span>
+                        </div>
+                    </div>
+                    <p class="pdt mgt mgb-0 op-8 bdt">
+                        Internet data for 10 months, cheapest anywhere. Buy now not later.
+                    </p>
+                </div>
+            </ChildContent>
+            <Empty>
+                <div class="hx-3 stack text-center">
+                    <h3 class="mgt-a">Paying for</h3>
+                    <div class="flex flex-center-x">
+                        @for (int i = 0; i < 4; i++)
+                        {
+                            <div class="stack mgx wx-06 text-center">
+                                <div class="mgx-a hx-04 wx-04 flex corner-2 bg-primary">
+                                    <i class="mdi mdi-star mg-a fsz-25"></i>
+                                </div>
+                                <p>MTN</p>
+                            </div>
+                        }
+                    </div>
+                    <Button Class="d-block mgb-a" Theme="Theme.Primary">Proceed to Payment</Button>
+                </div>
+            </Empty>
+        </DataList>
+    </WizardStep>
+    <WizardStep Context="_" Class="pd">
+        <div class="stack hf">
+            <h3>Paying for Electricity</h3>
+            <div class="bg-card pd corner-3 shadow">
+                <DataListDefaultItemTemplate Icon="mdi mdi-run" Title="Service Name" SubTitle="Paying - #500.00"
+                    Description="Package Name"
+                    Features="DataListDefaultItemTemplateFeatures.Default|DataListDefaultItemTemplateFeatures.RoundedImage">
+                </DataListDefaultItemTemplate>
+            </div>
+            <h1 class="text-center fsz-60 mgy-10 cl-primary">#500.0</h1>
+            <h4 class="text-center">Wallet Balance</h4>
+            <h2 class="text-center fsz-30 mgt-0 cl-info">#500.0</h2>
+            @if (false)
+            {
+                <p class="text-center">You do not have enough balance in your wallet</p>
+                <Button Class="d-block wf mgt" Theme="Theme.Error">Fund My Wallet</Button>
+            }
+            else
+            {
+                <EditForm Class="fill stack" Model="new object()">
+                    @{
+                        string b = "";
+                    }
+                    <InputEditor Class="mgt text-center bg-primary-01 bd corner-1" Type="InputType.TextArea" TValue="string"
+                    @bind-Value="b" Features="InputEditorFeatures.Default&~InputEditorFeatures.BorderBottom"
+                    PlaceHolder="Transaction Description">
+                    </InputEditor>
+
+                    <p class="text-center mgt-10">Enter your wallet password to pay</p>
+                    <InputEditor Class="fsz-30 text-center bg-error-01 bd corner-1" Type="InputType.Password"
+                    TValue="string" @bind-Value="b"
+                    Features="InputEditorFeatures.Default&~InputEditorFeatures.BorderBottom"
+                    PlaceHolder="Wallet Password">
+                    </InputEditor>
+                    <div class="mgt-a">
+                        <Button Class="d-block wf mgt" Theme="Theme.Primary" type="submit">Pay</Button>
+                    </div>
+                </EditForm>
+            }
+            @* <div class="bg-card">
+                @for (int _i = 0; _i < 3; _i++)
+                {
+                var i = _i;
+                <div class="row">
+                @for (int _i2 = 0; _i2 < 3; _i2++)
+                {
+                var i2 = _i2;
+                <div class="col-4 text-center">
+                <Button Features="ButtonFeatures.Flat" Class="fsz-50">@((i*3)+i2+1)</Button>
+                </div>
+                }
+                </div>
+                }
+                </div> *@
+        </div>
+    </WizardStep>
+    <WizardStep Context="_" Class="pd">
+        <h3>Fund My Wallet</h3>
+        <Accordion Exclusive="true">
+            <AccordionTab Class="bg-card pd shadow mgb-10 corner-3">
+                <Header Context="selected">
+                    <div class="row">
+                        <div class="col-a">
+                            <i class="mdi mdi-bank fsz-20"></i>
+                        </div>
+                        <div class="pdl col-10 stack">
+                            <h3 class="mgy-a">Bank Transfer</h3>
+                        </div>
+                        <div class="col-a">
+                            <i class="mdi mdi-chevron-@(selected?"down":"up") fsz-20"></i>
+                        </div>
+                    </div>
+                </Header>
+                <ChildContent>
+                    <p>
+                        Make a bank transfer to XXXXXXXXX.
+                        The amount transfered will be added to your wallet automatically
+                    </p>
+                </ChildContent>
+            </AccordionTab>
+            <AccordionTab Class="bg-card pd shadow mgb-10 corner-3">
+                <Header Context="selected">
+                    <div class="row">
+                        <div class="col-a">
+                            <i class="mdi mdi-card fsz-20"></i>
+                        </div>
+                        <div class="pdl col-10 stack">
+                            <h3 class="mgy-a">Card Payment</h3>
+                        </div>
+                        <div class="col-a">
+                            <i class="mdi mdi-chevron-@(selected?"down":"up") fsz-20"></i>
+                        </div>
+                    </div>
+                </Header>
+                <ChildContent>
+                    <EditForm Model="@(new object())">
+                        <InputField Class="mgt">
+                            <Label>
+                                Card Number
+                            </Label>
+                            <Field>
+                                @{
+                                    string b = "";
+                                }
+                                <InputEditor Type="InputType.Text" TValue="string" @bind-Value="b"
+                                    PlaceHolder="Card Number">
+                                </InputEditor>
+                            </Field>
+                        </InputField>
+                        <div class="row mgt">
+                            <div class="col-5">
+                                <InputField>
+                                    <Label>
+                                        Expiry Date
+                                    </Label>
+                                    <Field>
+                                        @{
+                                            string b = "";
+                                        }
+                                        <InputEditor Type="InputType.Text" TValue="string" @bind-Value="b"
+                                            PlaceHolder="Expiry Date">
+                                        </InputEditor>
+                                    </Field>
+                                </InputField>
+                            </div>
+                            <div class="col-5">
+                                <InputField>
+                                    <Label>
+                                        CVV
+                                    </Label>
+                                    <Field>
+                                        @{
+                                            string b = "";
+                                        }
+                                        <InputEditor Type="InputType.Text" TValue="string" @bind-Value="b"
+                                            PlaceHolder="CVV Code">
+                                        </InputEditor>
+                                    </Field>
+                                </InputField>
+                            </div>
+                        </div>
+                        <Button Theme="Theme.Primary" Class="wf d-block mgt">Pay</Button>
+                    </EditForm>
+                </ChildContent>
+            </AccordionTab>
+            <AccordionTab Class="bg-card pd shadow mgb-10 corner-3">
+                <Header Context="selected">
+                    <div class="row">
+                        <div class="col-a">
+                            <i class="mdi mdi-bank fsz-20"></i>
+                        </div>
+                        <div class="pdl col-10 stack">
+                            <h3 class="mgy-a">PayStack</h3>
+                        </div>
+                        <div class="col-a">
+                            <i class="mdi mdi-chevron-@(selected?"down":"up") fsz-20"></i>
+                        </div>
+                    </div>
+                </Header>
+                <ChildContent>
+                    <PayStackPayment CustomerEmail="o@o.x" Amount="100"></PayStackPayment>
+                </ChildContent>
+            </AccordionTab>
+        </Accordion>
+    </WizardStep>
+    <WizardStep Context="_" Class="pd">
+        <div class="stack hf">
+            <h3>Withdrawal</h3>
+            <EditForm Class="fill stack" Model="@(new object())">
+                @{
+                    string b = "";
+                }
+                <InputEditor Class="fsz-50 text-center bg-primary-01" Type="InputType.Text" TValue="string"
+                    @bind-Value="b" Features="InputEditorFeatures.Default&~InputEditorFeatures.BorderBottom"
+                    PlaceHolder="Amount">
+                </InputEditor>
+                <p class="text-center fsz-20">Your Wallet balance is #1000</p>
+                <h3>Withdraw to</h3>
+                <DataList TModel="int" Models="@(new int[]{1,2,3,4})" Context="card">
+                    <div class="bg-card pd shadow mgb-5 corner-3 row">
+                        <div class="col-a">
+                            <div class="hx-04 wx-04 flex corner-2 bg-warning">
+                                <i class="mg-a fsz-30 mdi mdi-account"></i>
+                            </div>
+                        </div>
+                        <div class="col-10 mgl-5 stack">
+                            <h3 class="mgt-a mgb-1">My Card 123</h3>
+                            <span class="mg-0">12345567890</span>
+                        </div>
+                        <div class="col-a flex">
+                            <div class="mg-a round hx-03 wx-03 bg-primary mdi mdi-check flex mgc-a"></div>
+                        </div>
+                    </div>
+                </DataList>
+                <div class="mgt-a">
+                    <Button Theme="Theme.Primary" Class="mgt d-block wf">Withdraw</Button>
+                </div>
+            </EditForm>
+        </div>
+    </WizardStep>
+    <WizardStep>
+        <SideBar Side="SideBarSide.Bottom" Class="hf" bar-class="text-right pd bg-card" content-class="pd">
+            <ChildContent>
+                <div class="row">
+                    <div class="col-10">
+                        <h2 class="cl-primary mg-0">Wallet Inflow</h2>
+                    </div>
+                    <div class="col-a">
+                        <h2 class="cl-primary mg-0">+#500</h2>
+                    </div>
+                </div>
+                <div class="row mgt">
+                    <div class="col-a stack">
+                        <div class="hx-07 wx-07 bd bd-card round">
+
+                        </div>
+                    </div>
+                    <div class="col-10 stack">
+                        <div class="bdt bd-card mgy-a"></div>
+                    </div>
+                    <div class="col-a">
+                        <div class="hx-07 wx-07 bd bd-card round">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row mgt">
+                    <div class="col-a stack">
+                        <b class="nowrap mgt-0">Samson A.</b>
+                    </div>
+                    <div class="col-10 stack">
+                    </div>
+                    <div class="col-a">
+                        <b class="nowrap mgt-0">MTN - Data - 500MB</b>
+                    </div>
+                </div>
+                <PropertySheet Class="mgt-10" li-class="pdy"
+                    Target="@(new Dictionary<string, object>(){["TransactionId"] = "12345", ["Date"] = "12/12/2022", ["Pre-Balance"] = 100, ["Deduction"] = 200, ["Post-Balance"] = 100})">
+                </PropertySheet>
+                <h3 class="mgt-10">Transaction Description</h3>
+                <p>The description of the transaction</p>
+            </ChildContent>
+            <Bar>
+                <Button Theme="Theme.Primary">Repeat this Transaction</Button>
+            </Bar>
+        </SideBar>
+    </WizardStep>
+    <WizardStep Class="pd pos-rel">
+        <div class="z-2 pos-abs r-0 b-0 t-0 stack scroll cl-primary">
+            @for (int i = 'A'; i <= 'Z'; i++)
+            {
+                char c = (char)i;
+                <span class="mg-3">@c</span>
+            }
+        </div>
+        <div class="hf scroll">
+            <h4>Recent Contact</h4>
+            <DataList Models="Enumerable.Range(1, 10)"
+                Features="DataListFeatures.Default|DataListFeatures.CarouselHorizontalView" Context="contact"
+                ItemName="Contact" 
+                li-class="stack pdx text-center pos-rel">
+                <div class="pos-abs t-0 r-0 mgr-1 mgt-1">
+                    <i class="fsz-20 mdi mdi-message cl-primary"></i>
+                </div>
+                <div class="hx-05 wx-05 round bd flex mgx-a bg-primary-01">
+                    <i class="mdi mdi-account fsz-40 mg-a"></i>
+                </div>
+                <b class="mgt-1">Name</b>
+            </DataList>
+
+            <DataList Models="Enumerable.Range(1, 10)"
+                Features="DataListFeatures.Default|DataListFeatures.CarouselHorizontalView|DataListFeatures.Search|DataListFeatures.LeftCustom"
+                Context="contact" ItemName="Contact" 
+                li-class="stack pdx text-center"
+                searchform-class="flex mdi mdi-glasses mgc-a bd corner-2 pdl">
+                <CustomToolBar>
+                    <h4 class="mgr nowrap">From Circles</h4>
+                </CustomToolBar>
+                <ChildContent>
+                    <div class="hx-05 wx-05 round bd flex mgx-a bg-primary-01">
+                        <i class="mdi mdi-account fsz-40 mg-a"></i>
+                    </div>
+                    <b class="mgt-1">Name</b>
+                </ChildContent>
+            </DataList>
+
+            <DataList Class="mgt" Models="Enumerable.Range(1, 100)"
+                Features="DataListFeatures.Default|DataListFeatures.Bordered|DataListFeatures.Search|DataListFeatures.Selectable|DataListFeatures.Virtualize|DataListFeatures.InfinityScroll|DataListFeatures.LeftCustom"
+                Context="contact" ItemName="Contact" 
+                li-class="pdy"
+                searchform-class="flex mdi mdi-glasses mgc-a bd corner-2 pdl">
+                <CustomToolBar>
+                    <h4 clas="mgr nowrap">Phone Contact</h4>
+                </CustomToolBar>
+                <ChildContent>
+                    <DataListDefaultItemTemplate Icon="mdi mdi-account"
+                        Features="DataListDefaultItemTemplateFeatures.Default|DataListDefaultItemTemplateFeatures.RoundedImage"
+                        Title="@($"Ade Kiosk ({contact})")" Description="Phone Contact/Email">
+                        <SubTitleTemplate>
+                            @if ((contact.Model&1) != 0)
+                            {
+                                <span class="mgr-2 d-i-block hx-01 wx-01 bg-error shadow-5 shadow-success round"></span>
+                                <text>2m ago</text>
+                            }
+                        </SubTitleTemplate>
+                    </DataListDefaultItemTemplate>
+                </ChildContent>
+            </DataList>
+        </div>
+    </WizardStep>
+    <WizardStep WizardFeatures="WizardFeatures.Default&~WizardFeatures.Controls">
+        <div class="clip hf pd bg-primary stack text-center pos-rel">
+            <div class="mgy-a">
+                <img src="_content/Nursery.Core.Client/logo.png" class="hx-15 wx-15 mgx-a d-block">
+                @* <h1 class="mgy-a fsz-50">UNIVERSE</h1> *@
+                <h3>Loading Article...</h3>
+            </div>
+            @{
+                var patternBuilder = SVGBuilder.Create(100, 300, DimensionUnit.None, true);
+                var builder = SVGBuilder.Create(100, 100, DimensionUnit.None, true);
+                double R = 40;
+                var random = new Random();
+                for (int i = 0; i < 10; i++)
+                {
+                    var angle = ((double)i / 10) * Math.PI*2;
+                    var w = R * Math.Sin(angle) + 0.5;
+                    var h = R * Math.Cos(angle) + 0.5;
+                    builder.MoveTo(0.5,0.5).LineTo(w, h)
+                        .StrokeColor("#FFFFFF30");
+                    builder.MoveTo(0.5, 0.5).Circle(((double)i) / 10)
+                    .FillColor("transparent")
+                    .StrokeColor("#FFFFFF30")
+                    .StrokeWidth(0.5);
+                }
+                for (int i = 0; i< 50; i++){
+                    patternBuilder.MoveTo(random.NextDouble() ,random.NextDouble())
+                        .Circle(random.NextDouble()/20.0)
+                        .FillColor("#FFFFFF30");
+                }
+            }
+            <div class="pos-abs t-0 b-0 r-0 l-0 stack">
+                <div class="mgy-a splash-rotate">
+                    <div class="splash-scale">
+                        @builder.Build()
+                    </div>
+                </div>
+            </div>
+            <div class="pos-abs t-0 b-0 r-0 l-0 stack">
+                @patternBuilder.Build()
+            </div>
+            <LivingThing.Core.Frameworks.Client.Components.Quotable.Quotable Context="quote">
+                <div class="mgb pd pos-abs b-0 l-0 r-0">
+                    <p>@quote.Model.Text - <em>@quote.Model.Author</em></p>
+                </div>
+            </LivingThing.Core.Frameworks.Client.Components.Quotable.Quotable>
+        </div>
+    </WizardStep>
+</WizardSteps>

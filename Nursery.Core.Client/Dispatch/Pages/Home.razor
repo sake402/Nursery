@@ -1,0 +1,74 @@
+﻿@page "/Dispatch/Home"
+<SideBar Class="bg-white-09 hf" Side="SideBarSide.Bottom" content-class="clip">
+    <ChildContent>
+   <div class="row  bdb bg-white pd-5 ">
+        <div class="col-a flex ">
+            <div class=" hx-07 wx-07 bg-bl-gray-dark mg-a round clip">
+                <img src="_content/Library/css/package.png" class="mawp-10 mahp-10">
+            </div>
+        </div>
+        <div class="col-10 mgl-7">
+            <h3 class="mg-0"><em>Hello Sandra</em></h3>
+            <div class="mgt-3 flex">
+                <div>
+                    <div class=" fw-bold bg-tb-primary-secondary shadow-1 drop  corner-2 pdx-2 pdy-1"><i class="mdi mdi-star"></i><span>12</span></div>
+                     </div>
+                    <div>
+                        <div class="fw-bold mgl bg-tb-info-error shadow-1 drop  corner-2 pdx-2 pdy-1 "><i class="mdi mdi-star"></i><span>12</span></div> 
+                    </div>
+            </div>
+         <p class="mgt-5 mgb-0 op-7">What would you like to do today? </p>
+    </div>
+    </div>
+    <div class="pd-5">
+    <div class="grid colm-15 gap-2">
+        @{ 
+            var icons = new[]{"mdi-package","mdi-road-variant","mdi-bike","mdi-share"};
+            var title = new[]{"Dispatch Item(s)","Track a dispatch","Be a dispatcher","Refer a friend"};
+            var theme = new[]{ Theme.Primary, Theme.Secondary, Theme.Error, Theme.Info};                
+            var desc = new[]{ "2000 riders available", "2000 riders available", "2000 riders available", "2000 riders available" };                
+        }
+        @for (int ii = 0; ii < 4; ii++)
+        {
+            var i = ii;
+            <Card Features="CardFeatures.Default&~CardFeatures.Pad" Class="flex corner-2">
+                <div class="text-center mg-a">
+                    <i class=" cl-@(theme[i].ToString().ToLower()) fse-5 mg-0  mdi @icons[i]"></i>
+                    <div class="mgx mgb">
+                        <h4 class=" mg-0">@title[i]</h4>
+                        <p class="text-italic mgb-0 mgt-1  op-8">@desc[i]</p>                
+                    </div>
+                </div>
+            </Card>
+        }
+    </div>
+    <DataList TModel="int" li-class="pdy" Models="new int[]{1, 2, 3, 4}" Features="DataListFeatures.Default|DataListFeatures.Bordered">
+        <DataListDefaultItemTemplate Icon="mdi mdi-bike" Title="Package 1234" Description="Dispatch is 50m away from delivery ETA 2m">
+            
+        </DataListDefaultItemTemplate>
+    </DataList>
+    </div>
+    </ChildContent>
+    <Bar>
+        <div class="bg-card shadow pd">
+            <h4 class=" flex mg-0"><i class="fsz-25 cl-info mdi mdi-information"></i><span class="mgl-1 mgy-a"> Did you know?</span></h4>
+            <p class="op-7 fsz-small mgb-0 mgt-1">Dispatchers using GPS tracking system get more jobs on iLogistics than their counterparts. Customers prefer to know the location and ETA of their goods at all times.</p>
+        </div>
+    </Bar>
+</SideBar>
+
+@* <Tabs Theme="Theme.Primary" Features="TabsFeatures.Default|TabsFeatures.TabsBorder|TabsFeatures.TabsSelectedBorder">
+    <Tab>
+        <Header>1</Header>
+        <ChildContent>Hello</ChildContent>    
+    </Tab>
+    <Tab>
+        <Header>2</Header>
+        <ChildContent>World</ChildContent>    
+    </Tab>
+</Tabs>
+<div class="mdi shadow-3 bd bdw-5 bd-primary"></div>
+@if (true)
+{
+
+} *@

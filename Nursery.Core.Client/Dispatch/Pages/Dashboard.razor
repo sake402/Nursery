@@ -1,0 +1,90 @@
+﻿@page "/Dispatch/Dashboard"
+@using LivingThing.Core.Frameworks.Common
+
+<EditForm Model="new object()" Context="_" class="hf">
+    <WizardSteps InitialViewIndex="0" class="hf">
+        <WizardStep Class="pd">
+            <FormWizard TModel="DispatchCreateWizard" Theme="Theme.Primary"></FormWizard>
+        </WizardStep>
+        <WizardStep>
+            <div class="bd text-center pdx-10">
+                <h3>
+                    We have submited your request, your dipatchers and bidding price will appear here
+                </h3>
+            </div>
+            <DataList TModel="int" Models="new int[]{ 1,2,3,4,5}"
+                Features="DataListFeatures.Default|DataListFeatures.Bordered" Context="user" Class="bdb ">
+                <CommunityAccountBidListItem></CommunityAccountBidListItem>
+            </DataList>
+        </WizardStep>
+        <WizardStep Class="pd">
+            <div class="bdb pdx-10 text-center">
+                <h3>We are sorry that you are cancelling this order. Do you mind telling us why?</h3>
+            </div>
+
+            <div class="mgt-5">
+                <InputEditor TValue="CancellationReason" @bind-Value="cancellationReason" Theme="Theme.Primary"
+                    Type="InputType.Radio" Features="InputEditorFeatures.Default">
+                </InputEditor>
+            </div>
+            <div class="mgl-10">
+                <InputEditor TValue="string" @bind-Value="weight" Type="InputType.TextArea"
+                    Theme="Theme.Primary" PlaceHolder="Others? please tell us"
+                    Features="InputEditorFeatures.Default|InputEditorFeatures.BorderBottom|InputEditorFeatures.PlaceHolder">
+                </InputEditor>
+            </div>
+        </WizardStep>
+        <WizardStep class="pos-rel">
+            @if (awarding)
+            {
+                <div class="bg-dark-08 cl-white flex pos-abs t-0 r-0 l-0 b-0 z-2">
+                    <div class="mg-a  text-center">
+                        <i class="mdi mdi-loading cl-success fse-5"></i>
+                        <h3>Waiting for Ade Kiosk to accept contract </h3>
+                        <p>Expires in <span class="cl-warning fw-bold">00:05:20</span></p>
+                        <Button Class="mdi mdi-cancel" Theme="Theme.Warning" Features="ButtonFeatures.Default&~ButtonFeatures.Shadow" OnClicked="@(()=>awarding=false)">Cancel Contract</Button>
+                    </div>
+                </div>
+            }
+            <SideBar Class="hf" bar-class="bg-card pd text-right" Side="SideBarSide.Bottom">
+                <ChildContent>
+                    <CommunityAccountBidDetails></CommunityAccountBidDetails>
+                </ChildContent>
+                <Bar>
+                    <Button Class="mdi mdi-check-bold" Theme="Theme.Primary" OnClicked="@(()=>awarding=true)">Award Contract</Button>
+                </Bar>
+            </SideBar>
+        </WizardStep>
+        <WizardStep>
+            <CommunityAccountAwardContract></CommunityAccountAwardContract>
+        </WizardStep>
+        <WizardStep>
+            <div class="bg-bl-gray-card">
+                <div class="text-center pdx-10 bdb pdy-5">
+                    <h4 class="mg-0">Payment received.<br><br>
+                        We've also notified Ade kiosk A. of your payment to him. He will be on his way for pickup any
+                        moment.<br><br>
+                        Please find your order details below.</h4>
+                </div>
+                <Carousel Context="___">
+                    @for (int i = 0; i < 5; i++)
+                    {
+                        <div>
+                            <div class="clip hx-15 wx-15 "><img alt="package" src="_content/Library/css/package.png"
+                                class="mawp-10 mahp-10"></div>
+                        </div>
+                    }
+                </Carousel>
+                <PropertySheet 
+                    Target="dict" 
+                    PadContent="2"
+                    Context="_">
+                </PropertySheet>
+                <div class="pdx">
+                    <h3>Dispatcher</h3>
+                    <CommunityAccountBidListItem></CommunityAccountBidListItem>
+                </div>
+            </div>
+        </WizardStep>
+    </WizardSteps>
+</EditForm>
