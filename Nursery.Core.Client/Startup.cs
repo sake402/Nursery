@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +16,8 @@ namespace Nursery.Core.Client
 {
     public static class Startup
     {
-        public static void AddGidiClient(this IServiceCollection services)
-        {
+        public static void AddNurseryClient(this IServiceCollection services)
+        { 
             services.AddInputField<DispatchImagesWizardStepInput, DispatchImagesWizardStep>();
             services.AddInputField<DispatchPickupLocationWizardStepInput, DispatchPickupLocationWizardStep>();
             services.AddInputField<DispatchDeliveryLocationWizardStepInput, DispatchDeliveryLocationWizardStep>();
