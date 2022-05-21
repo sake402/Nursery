@@ -1,0 +1,8 @@
+﻿<h3>@Title</h3>
+<button @onclick="()=>collapsed=!collapsed"></button>
+<div style="@($"overflow:hidden;height:{(collapsed?"0px":"auto")}")">@ChildContent</div>
+@code {
+    [Parameter] public string Title{ get; set; }
+    [Parameter] public RenderFragment ChildContent{ get; set; }
+    bool collapsed;
+}

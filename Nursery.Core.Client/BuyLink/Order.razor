@@ -1,0 +1,107 @@
+@page "/BuyLink/Order"
+@using LivingThing.Core.Frameworks.Common.Data.Measurements
+
+<div class="pos-rel">
+    <Slider>
+        @for(int i = 0; i < 10; i++)
+        {
+            <Slide TransitionIn="DisplayMode.SlideInRight" TransitionOut="DisplayMode.SlideOutLeft">
+                <Media></Media>
+            </Slide>
+        }
+    </Slider>
+    <div class="pos-abs b-0 r-0 hx-1 wx-1 bg-primary round flex mgr mgb">
+        <div class="stack text-center mg-a">
+        <h2 class="mg-0">$</h2>
+        <h2 class="mg-0">150,000</h2>
+        </div>
+    </div>
+</div>
+<div class="pd">
+    <small>21/02/2022</small>
+    <h2 class="mgt-0">Order Title</h2>
+    <p>Order Description</p>    
+</div>
+<Tabs InitialViewIndex="0" 
+    Theme="Theme.Primary"
+    tabs-head-class="bg-card" 
+    TabsFeatures="TabsFeatures.Default|TabsFeatures.ButtonTabs">
+    <Tab>
+        <Title>
+            <Button Theme="Theme.Primary" 
+                Features="(ButtonFeatures.Default&~ButtonFeatures.Corner)|ButtonFeatures.Small|ButtonFeatures.PropagateClick"
+                Class="corner-5">Products</Button>
+        </Title>
+        <ChildContent>
+            <DataList TModel="int" 
+                Models="new int[]{1,2,3,4,5}"
+                li-class="pdy"
+                Context="oi"
+                Features="DataListFeatures.Default|DataListFeatures.Bordered">
+                <DataListDefaultItemTemplate Title="ProductTitle" 
+                    SubTitle="AliExpress"
+                    Description="Product.Description"
+                    NavigateIcon="true"></DataListDefaultItemTemplate>
+            </DataList>
+        </ChildContent>
+    </Tab>
+    <Tab Class="pd">
+        <Title>
+            <Button Theme="Theme.Primary" 
+                Features="(ButtonFeatures.Default&~ButtonFeatures.Corner)|ButtonFeatures.Small|ButtonFeatures.PropagateClick"
+                Class="corner-5">Queries</Button>
+        </Title>
+        <ChildContent Context="_">
+            <h4>You have two pending queries on this product</h4>
+            <div class="pdl-10">
+                <EditForm Model="this" Context="__">
+                    <TimeLines style="margin-left:-100%">
+                        <TimeLine>
+                            <div class="mgb-10">
+                                <small class="d-block">21/02/2020 19:33:00</small>
+                                <p class="mgt-0">BuyLink wants to know product color of choice</p> 
+                                <div>
+                                    <span class="fsz-18">
+                                        <i class="mdi mdi-check-circle cl-success"></i>
+                                        Red 
+                                    </span>
+                                    <a href="#">Change</a>
+                                </div>
+                                <div class="flex mgt">
+                                @for (int i = 0; i < 10; i++)
+                                {
+                                    <div class="corner-5 bg-error pdx-3 pdy-1 mgr">Red</div>
+                                }
+                                </div>
+                            </div>
+                        </TimeLine>
+                        <TimeLine>
+                            <div class="mgb-10">
+                                <small class="d-block">21/02/2020 19:33:00</small>
+                                <p class="mgt-0">BuyLink wants to know the size of this shoes</p> 
+                                <InputEditor @bind-Value="l"></InputEditor>
+                            </div>
+                        </TimeLine>
+                    </TimeLines>
+                </EditForm>
+            </div>
+        </ChildContent>
+    </Tab>
+    <Tab>
+        <Title>
+            <Button Theme="Theme.Primary" 
+                Features="(ButtonFeatures.Default&~ButtonFeatures.Corner)|ButtonFeatures.Small|ButtonFeatures.PropagateClick"
+                Class="corner-5">Chats</Button>
+        </Title>
+        <ChildContent>
+
+        </ChildContent>
+    </Tab>
+</Tabs>
+
+@code{
+    string a;
+    bool b;
+    int n;
+    Length l;
+}

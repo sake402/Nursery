@@ -1,0 +1,39 @@
+@page "/IPTV/Lives"
+
+<VideoSearch>
+    <DataTable Class="hf scroll" 
+            TModel="int" 
+            Models="Enumerable.Range(1,100)"
+            Features="DataListFeatures.Default|DataListFeatures.Selectable"
+            th-class="pos-sticky"
+            thead-class="z-2"
+            tr-class="pd-1">
+        <DataTableColumn TModel="int">
+            <Header Context="_">
+                Channel
+            </Header>
+            <ChildContent Context="_">
+                <div class="row">
+                    <div class="col-a stack">
+                        <i class="mg-a mdi mdi-plus-circle cl-primary"></i>
+                    </div>
+                    <div class="col-10 pdl-1">
+                        <h4 class="mg-0 nowrap">Channel @context.Model</h4>
+                    </div>
+                </div>
+            </ChildContent>
+        </DataTableColumn>
+        @for(int i = 0; i < 24; i++)
+        {
+            DateTime start = DateTime.UtcNow.AddHours(i);
+            <DataTableColumn TModel="int">
+                <Header Context="_">
+                    @start.TimeOfDay.ToString("hh\\:mm")
+                </Header>
+                <ChildContent Context="_">
+                    <small class="nowrap">No Information</small>
+                </ChildContent>
+            </DataTableColumn>
+        }
+    </DataTable>
+</VideoSearch>

@@ -1,0 +1,178 @@
+@page "/BuyLink"
+@using LivingThing.Core.Frameworks.Common.Data
+
+<Loading ViewModel="this" Features="LoadingFeatures.Default|LoadingFeatures.Overlay">
+    <div class="hf stack pd pos-rel">
+        <div>
+            <i class="mdi mdi-cart fsz-100 mgx-a mgt-20 wx-15 hx-15 round bd flex mgc-a"></i>
+        </div>
+        <h2 class="text-center">
+            Buy Anything Online from 
+            <br>
+            Anywhere
+        </h2>
+        <h3 class="text-center mgb-0">With just a LINK!</h3>
+        <div class="row mgt-2">
+            <div class="col-5 bdr bd-primary">
+                <Button Features="ButtonFeatures.Flat" 
+                    Class="cl-primary wf"
+                    view-class="bg-tertiary-09 hf pd wf z-2">
+                    <ChildContent>
+                        How it works?
+                    </ChildContent>
+                    <View>
+                        <h2 class="text-center">Simple steps</h2>
+                        <h3 class="text-center">Awesome results</h3>
+                        <div class="mgl-10">
+                            <TimeLines style="margin-left:-100%">
+                                <TimeLine>
+                                    <h4 class="mgt-0">1.😲You see something awesome online.</h4>
+                                </TimeLine>
+                                <TimeLine>
+                                    <h4 class="mgt-0">2. You copy the link or download its image to BuyLink</h4>
+                                </TimeLine>
+                                <TimeLine>
+                                    <h4 class="mgt-0">3. BuyLink checks it out and give you a quote.</h4>
+                                </TimeLine>
+                                <TimeLine>
+                                    <h4 class="mgt-0">4. You pay BuyLink for the order.</h4>
+                                </TimeLine>
+                                <TimeLine>
+                                    <h4 class="mgt-0">5. BuyLink orders, ships and tracks it to Nigeria, all the while keeping you updated of the progress.</h4>
+                                </TimeLine>
+                                <TimeLine>
+                                    <h4 class="mgt-0">5. BuyLink notifies you of arrival and clearing cost (in proportion to weight).</h4>
+                                </TimeLine>
+                                <TimeLine>
+                                    <h4 class="mgt-0">6. You pay shipment cost and delivery on BuyLink App.</h4>
+                                </TimeLine>
+                                <TimeLine>
+                                    <h4 class="mgt-0">7. BuyLink delivers🚚 tou your doorstep, something awesome.</h4>
+                                </TimeLine>
+                            </TimeLines>
+                        </div>
+                    </View>
+                </Button>
+            </div>
+            <div class="col-5">
+                <Button Features="ButtonFeatures.Flat" 
+                    Class="cl-primary wf"
+                    view-class="bg-tertiary-09 hf pd wf z-2">
+                    <ChildContent>
+                        T & C applies
+                    </ChildContent>
+                    <View>
+                        <h3>BuyLink Terms and Conditions</h3>
+                        <ul class="lh-2">
+                            <li>
+                                BuyLinks currently ship to just Nigeria from China.
+                            </li>
+                            <li>
+                                That I, the user of BuyLink is responsible for the correctness 
+                                and originality of items whose links or images I post on BuyLink.
+                            </li>
+                            <li>
+                                BuyLink, when given a link to an items, may not neccessarily purchase from the exact source, 
+                                but use its agents in China to buy the item from a trusted source, all while saving our users const on the purchase.
+                            </li>
+                            <li>
+                                That BuyLink may decide, at its discretion, not to order some specific items that may breach some laws and standards.
+                            </li>
+                            <li>
+                                That on notification of arrival of ordered items, 
+                                if I refuse to pay for shipment despite email remiders 
+                                within a month of arrival, the said items may be forfieted to BuyLink.
+                            </li>
+                            <li>
+                                That BuyLink has the right to update this Terms and Conditions in the future, to which I agreed.
+                            </li>
+                        </ul>
+                    </View>
+                </Button>
+            </div>
+        </div>
+        <div class="mgy-a">
+            <EditForm Model="this" OnSubmit="SubmitUrl" class="flex mgy-10">
+                <InputEditor Class="bg-primary-01 fsz-25" 
+                            PlaceHolder="Paste product link here" 
+                            TValue="string" 
+                            @bind-Value="url"></InputEditor>
+                <Button Theme="Theme.Primary" 
+                        type="submit"
+                        Features="(ButtonFeatures.Default|ButtonFeatures.XLarge)&~ButtonFeatures.Corner" 
+                        Class="mdi mdi-google-lens corner-r-2 fsz-30"></Button>
+            </EditForm>
+        </div>
+        <DataList TModel="IDisplayable" 
+            Models="cart"
+            Features="DataListFeatures.Default|DataListFeatures.Bordered">
+            <Wrapper Context="wrapper">
+                <div class="fill scroll">
+                    <div class="flex">
+                        <h3 class="fill">My BuyLink Cart</h3>
+                        @if (wrapper.Models?.Any()??false){
+                            <Button Features="ButtonFeatures.Flat"
+                                    view-class="stack bg-tertiary-09 hf scroll pd wf z-2 animated slideInUp">
+                                <ChildContent>
+                                    Check out >>
+                                </ChildContent>
+                                <View>
+                                    <h3>Ready to order these awesome things?</h3>
+                                    <DataList TModel="IDisplayable" 
+                                        Models="cart"
+                                        Features="DataListFeatures.Default|DataListFeatures.Bordered">
+                                        <ChildContent Context="buylink">
+                                            <DataListDefaultItemTemplate Title="@buylink.Model.Title" 
+                                                SubTitle="AliExpress"
+                                                Description="@buylink.Model.Description"
+                                                IconDescriptor="@buylink.Model.Icon"
+                                                NavigateIcon="true"></DataListDefaultItemTemplate>
+                                        </ChildContent>
+                                    </DataList>
+                                    <DataList TModel="int" 
+                                        Models="new int[]{1,2}"
+                                        Features="DataListFeatures.Default|DataListFeatures.Bordered">
+                                        <Wrapper Context="wrapper2">
+                                            @if (wrapper2.Models?.Any()??false)
+                                            {
+                                                <p>
+                                                    ✋Wait, we found these pending (waiting for Buylink review) orders in your account. 
+                                                    If you intend to merge these with them, click Merge, otherwise create a new order.
+                                                </p>
+                                                @wrapper2.View
+                                            }
+                                        </Wrapper>
+                                        <ChildContent>
+                                            <DataListDefaultItemTemplate Title="Order Title (12/12/2020)" 
+                                                SubTitle="9 items"
+                                                Description="Order Description"
+                                                Icon="mdi mdi-cart"
+                                                NavigateIcon="true">
+                                                    <div class="pdb text-right">
+                                                        <Button Theme="Theme.Primary"
+                                                                Features="ButtonFeatures.Default|ButtonFeatures.XSmall">Merge into this</Button>
+                                                    </div>
+                                                </DataListDefaultItemTemplate>
+                                        </ChildContent>
+                                    </DataList>
+                                    <Button Theme="Theme.Primary" Class="wf mgt-a" Features="ButtonFeatures.Default|ButtonFeatures.Large">Create Order</Button>
+                                </View>
+                            </Button>
+                        }
+                    </div>
+                    @wrapper.View
+                </div>
+            </Wrapper>
+            <ChildContent Context="buylink">
+                <DataListDefaultItemTemplate Title="@buylink.Model.Title" 
+                    SubTitle="AliExpress"
+                    Description="@buylink.Model.Description"
+                    IconDescriptor="@buylink.Model.Icon"
+                    NavigateIcon="true"></DataListDefaultItemTemplate>
+            </ChildContent>
+            <Empty>
+                <DataListEmpty Message="Search for what you want to buy above"></DataListEmpty>
+            </Empty>
+        </DataList>
+    </div>
+</Loading>

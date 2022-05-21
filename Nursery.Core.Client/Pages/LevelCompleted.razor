@@ -1,0 +1,19 @@
+﻿@inherits BasePage
+@page "/Completed"
+<div class="levelcompleted">
+        <i class="mdi mdi-home-outline" id="home-btn" @onclick="@GoBackHome"></i>
+        <div class="wrap">
+        <div class="cover">
+            <div class="circle">
+                <div class="circle-al">
+                    <h1><b>Congrats!</b></h1>
+                    <i class="mdi mdi-check-underline" id="suc"></i>
+                    <h4>Stage Completed</h4>
+                    <h5 class="score">Your Score:<b>@engine.CurrentPlayer.Scores[engine.Level.ToString()]</b></h5>
+                    <h5 class="high-score"><b>High Score:@engine.Database.GetHighestScore(engine.Level).</b></h5>
+                </div>
+            </div>
+            <button class="cont" @onclick="Continue"><h3>Continue</h3></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+@page "/BuyLink/Email"
+
+<div class="hf wf flex bg-tertiary">
+    <div class="mgx-a mgy bd corner clip mawx-4 bg-card">
+        <div class="bg-primary pd row">
+            <div class="col-a flex">
+                <i class="cl-error mgy-a hx-1 wx-1 bd bd-error round fsz-70 flex mgc-a mdi mdi-cart-heart"></i>
+            </div>
+            <div class="pdl stack">
+                <div class="mgy-a">
+                    <h2 class="mg-0">BuyLink Order Update</h2>
+                    <h4 class="mgb-0 mgt-5">My Order 1234 (12345678)</h4>
+                </div>
+            </div>
+        </div>
+        <div class="pd">
+            <h2>Your order is submitted</h2>
+            <p>
+                Order 123 has been submitted to BuyLink. 
+            </p> 
+            <p>  
+                 BuyLink will respond to your order in 24hrs top.
+                 We will notify you once there is an update.
+            </p>
+            <h3>Order Products</h3>
+            <div class="grid colm-1 gap-1">
+                @for(int i = 0; i < 5; i++)
+                {
+                    <div class="bd corner clip">
+                        <div class="hx-1 clip">
+                            <Media Height="100" 
+                                Features="(MediaFeatures.Default&~MediaFeatures.Responsive)|MediaFeatures.Background"></Media>
+                        </div>
+                        <p class="fsz-small mgy-2 text-center">Product Name</p>
+                    </div>
+                }
+            </div>
+            <Button Theme="Theme.Primary" Features="ButtonFeatures.Default|ButtonFeatures.XLarge" Class="wf mgt-5">Open Order</Button>
+        </div>
+    </div>
+</div>

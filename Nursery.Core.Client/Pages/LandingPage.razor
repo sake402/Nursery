@@ -1,0 +1,72 @@
+﻿@inherits BasePage
+@page "/"
+
+@*<div class="landingpage">*@
+<div class="landingpage">
+    <div class="wrap">
+        <h1>Sudoku</h1>
+        <h2><small>Welcome!</small></h2>
+        @*    <Collapsible Title="Hello World">
+            I love coding ok kdjf jdkj f
+            </Collapsible>*@
+        <div class="name">
+            <input disabled="@(engine.CurrentPlayerName!=null)" @bind-value="engine.CurrentPlayerName" @bind-value:event="onchange"
+                   placeholder="Please Enter Your Name" />
+            <i class="@((engine.CurrentPlayerName!=null? "show" : "hide")) mdi mdi-reload" @onclick="Clear"></i>
+            <button @onclick="Continue" class="contbtn">Continue  <i class="mdi mdi-arrow-down-drop-circle"></i></button>
+        </div>
+        <div id="others" class="@((showOtherContent? "other-content" : "hide"))">
+            <p>
+                <label>
+                    Choose Level:
+                    <select @bind-Value="Level" @bind-Value:event="onchange">
+                        <option value=1>@Levels.Beginner.ToString()</option>
+                        <option value=2>@Levels.Intermediate.ToString()</option>
+                        <option value=3>@Levels.Professional.ToString()</option>
+                        <option value=4>@Levels.Expert.ToString()</option>
+                    </select>
+                </label>
+            </p>
+            <div><NavLink href="Game"><button>Play</button></NavLink></div>
+        </div>
+        <div class="@((showOtherContent? "hide" : "hist"))"><h3><b>History</b></h3></div>
+        <div class="@((showOtherContent? "hide" : "history"))">
+            <div class="wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            @for (int i = 0; i < 9; i++)
+                            {
+                                <td>Level @(i+1)</td>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in engine.Database.GetAllUsers())
+                        {
+                            <tr>
+                                <td>@user.Name</td>
+                                @for (int i = 0; i < 9; i++)
+                                {
+                                    var score = user.GetScoreForLevel(i + 1);
+                                    <td>
+                                        @if (score == null)
+                                        {
+                                            <text>--</text>
+                                        }
+                                        else
+                                        {
+                                            @score
+                                        }
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@*</div>*@

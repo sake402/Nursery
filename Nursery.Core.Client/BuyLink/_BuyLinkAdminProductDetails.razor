@@ -1,0 +1,66 @@
+@namespace LivingThing.Core.Community.BuyLink.Client.Shared
+@inherits BaseParameterizedComponent<CommunityBuyLinkPostModel>
+@using LivingThing.Core.Community.BuyLink.Common.Models
+
+<div class="bg-tertiary clip bdl bdw-3 bd-error">
+    <div class="pd">
+        <h3 class="mg-0">Product: "@ViewModel.Title"</h3>
+        <em class="d-block">@ViewModel.Url</em>
+        <em class="d-block mgt-2">@ViewModel.Summary</em>
+        <em class="d-block">@ViewModel.Post</em>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <Media Class="mahx-4"></Media>
+        </div>
+        <div class="col-7 pdl">
+            <Tabs Theme="Theme.Primary" InitialViewIndex="0" 
+                TabsFeatures="TabsFeatures.Default|TabsFeatures.TabsBorder|TabsFeatures.TabBorder|TabsFeatures.TabsSelectedBorder">
+                <Tab>
+                    <Title Context="tt">
+                        <b>Information</b>
+                    </Title>
+                    <ChildContent Context="cc">
+                        <PropertySheet Class="mgt" Features="DataListFeatures.Default|DataListFeatures.Bordered"
+                            PadContent="2"
+                            Target="@(new Dictionary<string, object>(){["Date"] = DateTime.UtcNow, ["Products"] = 5, ["Order Status"] = "Under Query"})"></PropertySheet>
+                    </ChildContent>
+                </Tab>
+                <Tab Class="pd">
+                    <Title><b>Queries</b></Title>
+                    <ChildContent>
+                        <BuyLinkQueries ViewModel="ViewModel"></BuyLinkQueries>
+                        <FormBuilder TModel="CommunityBuyLinkQueryPostModel" @bind-Model="query" OnSubmit="Query">
+                            <Submit>
+                                <Button Theme="Theme.Primary" type="submit">Query</Button>
+                            </Submit>
+                        </FormBuilder>
+                    </ChildContent>
+                </Tab>
+                <Tab>
+                    <Title Context="tt">
+                        <b>Chat</b>
+                    </Title>
+                    <ChildContent Context="cc">
+
+                    </ChildContent>
+                </Tab>
+                <Tab Class="pd">
+                    <Title><b>Pricing</b></Title>
+                    <ChildContent>
+                        <em>Please ensure all neccessary querieso on this product are clarified before setting a price</em>
+                        <FormBuilder TModel="double" 
+                            Class="mgt"
+                            field-input-class="bg-promary-01"
+                            Theme="Theme.Primary"
+                            Features="FormBuilderFeatures.Default|FormBuilderFeatures.Horizontal">
+                            <Submit>
+                                <Button Class="mg-1" Theme="Theme.Primary" type="submit">Set Price</Button>
+                            </Submit>
+                        </FormBuilder>                                
+                    </ChildContent>
+                </Tab>
+            </Tabs>
+        </div>
+    </div>
+</div>

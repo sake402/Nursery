@@ -1,0 +1,201 @@
+﻿
+@import "../wwwroot/css/ColorStyles.scss";
+@keyframes pop {
+    from {
+        transform: scale(0,0)
+    }
+
+    to {
+        transform: scale(100%,100%)
+    }
+}
+@keyframes clear {
+    from {
+        transform: scale(100%,100%) 
+    }
+
+    to {
+        transform: scale(0,0)
+    }
+}
+.gamepage {
+    background-color: $secondarycolour;
+    height: 100vh;
+    overflow: auto;
+
+    .wrap {
+        padding: 8px;
+    }
+
+    #home-btn {
+        color: $white;
+        font-size: 25px;
+    }
+
+    .head {
+        > h4, > h5 {
+            margin: 0;
+        }
+
+        .title {
+            color: $primarycolour;
+        }
+
+        .timer {
+            margin: 20px 0 20px 0;
+
+            > h5 {
+                color: $primarycolour;
+                display: inline-block;
+            }
+
+            .time {
+                float: right;
+                color: $tertiarycolour;
+                font-weight: bold;
+                display: inline-block;
+                font-size: larger;
+            }
+        }
+    }
+
+    .game {
+        table {
+            width: 100%;
+            border-collapse: collapse;
+
+            tr {
+            }
+
+            .fixed {
+                border: 1px solid $tertiarycolour;
+            }
+
+            td {
+                border: 1px solid $primarycolour;
+                cursor: pointer;
+                height: 30px;
+                width: 30px;
+                text-align: center;
+
+                &:hover {
+                    background-color: $primarycolour;
+                    color: $secondarycolour;
+                }
+
+                &:focus {
+                    background-color: $tertiarycolour;
+                    color: $secondarycolour;
+                }
+            }
+        }
+
+        .keypad {
+            display: flex;
+            flex-wrap: wrap;
+            font-weight: bold;
+            margin-top: 20px;
+            justify-content: center;
+
+
+            .keys {
+                padding: 10px 20px;
+                border-radius: 10px;
+                background-color: $primarycolour;
+                color: $secondarycolour;
+                margin: 5px;
+                cursor: pointer;
+            }
+
+            .bright {
+                background-color: $tertiarycolour;
+            }
+        }
+
+        .function {
+            margin-top: 2px;
+            text-align: center;
+
+            .play-pause {
+            }
+
+            new-game {
+            }
+
+            .reload {
+                font-size: 20px;
+                color: $tertiarycolour;
+            }
+        }
+
+        .mask {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #00000080;
+            display: flex;
+            position: fixed;
+
+            .clear {
+               /* animation-name: clear;
+                animation-duration: .1s;*/
+            }
+
+            .pop {
+                animation-name: pop;
+                animation-duration: .5s;
+            }
+
+            .wrap {
+                margin: auto;
+                padding: 50px;
+                text-align: center;
+                background: white;
+                border-radius: 10px;
+
+                span {
+                }
+
+                .box {
+                    padding: 5px;
+                    margin-top: 30px;
+
+                    .confirm {
+                        color: $white;
+                        padding: 15px;
+                        border-radius: 5px;
+                    }
+
+                    .yes {
+                        background-color: $tertiarycolour;
+                        margin-left: 15px;
+                    }
+
+                    .no {
+                        background-color: black;
+                    }
+                }
+            }
+        }
+
+        .mybtn {
+            background-color: $primarycolour;
+            color: $white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            margin: 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+
+    .info {
+        text-align: center;
+        background-color: #ffd78f;
+        padding: 7px;
+        color: $tertiarycolour;
+    }
+}
+

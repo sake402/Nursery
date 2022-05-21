@@ -1,0 +1,58 @@
+@inherits BaseContainer
+
+<div class="hf stack">
+    <TopNav></TopNav>
+    <div class="fill clip">
+        <div class="row hf clip">
+            <div class="col-a miwx-2 scroll bdr">
+                <DataList Class="hf" TModel="int" 
+                    Models="Enumerable.Range(1,100)"
+                    Features="DataListFeatures.Default|DataListFeatures.Selectable|DataListFeatures.Bordered|DataListFeatures.Search"
+                    PadContent="3"
+                    ItemName="Category">
+                        <div class="row">
+                            <div class="col-a stack">
+                                <i class="mg-a mdi mdi-plus-circle cl-primary"></i>
+                            </div>
+                            <div class="col-10 pdl">
+                                <h4 class="mg-0">Category @context.Model</h4>
+                            </div>
+                        </div>
+                </DataList>
+            </div>
+            <div class="col-10 stack clip">
+                <div class="row hp-50">
+                    <div class="col-4 pd">
+                        <div class="bg-black wf hf flex">
+                            <h2 class="mg-a">Video Preview</h2>
+                        </div>
+                    </div>
+                    <div class="col-2 stack">
+                        <h4>No Information</h4>
+                        <p>Lore Ipsum</p>
+                        <small class="nowrap">11:00AM - 12:00PM</small>
+                        <ProgressBar Progress="50" 
+                            Height="10"
+                            Class="corner clip mgt"
+                            BackgroundTheme="Theme.Gray" 
+                            Theme="Theme.Primary">
+                            </ProgressBar>
+                            <div class="fill"></div>
+                            <Menu class="mgy" Context="_">
+                                <MenuItem Class="stack" Context="__">
+                                    <i class="mgx-a mdi mdi-heart cl-warning"></i>
+                                    <small class="mgx-a op-6">100+</small>
+                                </MenuItem>
+                            </Menu>
+                    </div>
+                    <div class="col-4 pd flex">
+                        <PageNav></PageNav>
+                    </div>
+                </div>
+                <div class="hp-50">
+                    @ChildContent
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

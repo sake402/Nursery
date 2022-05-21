@@ -1,0 +1,146 @@
+@page "/Errand/Home"
+@using LivingThing.Core.Frameworks.Common.Data
+
+@*<FormWizard TModel="DispatchCreateWizard"></FormWizard>*@
+<EditForm Model= "new object()" class="hf" Context="_">
+<WizardSteps InitialViewIndex="0" class="hf">
+    <WizardStep>
+            <svg  class="pos-abs z-1" width="166" height="98" viewBox="0 0 166 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-96.3845 31.4819C-100.464 34.6133 -101.503 40.3285 -98.7872 44.6956L-69.0359 92.5325C-66.7229 96.2517 -62.2104 98.0222 -57.9751 96.907C73.0088 62.4185 138.942 34.9955 165.124 -74.6445C165.735 -77.2009 165.286 -79.9416 163.898 -82.1734L133.465 -131.106C130.343 -136.125 123.573 -137.356 118.884 -133.757L-96.3845 31.4819Z" fill="url(#paint0_radial_12_758)"/>
+                <defs>
+                <radialGradient id="paint0_radial_12_758" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(46.2514 -1.29565) rotate(-37.5097) scale(149.306 60.8495)">
+                <stop stop-color="#FF9900"/>
+                <stop offset="1" stop-color="#FF9900" stop-opacity="0.47"/>
+                </radialGradient>
+                </defs>
+            </svg>
+            <svg class="pos-abs z-1 r-0 t-0" width="169" height="109" viewBox="0 0 169 109" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M46.9087 -115.04C43.1222 -118.358 37.4592 -118.344 33.6895 -115.007L4.13352 -88.841C0.542329 -85.6618 -0.26535 -80.3423 2.18969 -76.2219C68.8517 35.6574 111.35 91.5757 212.517 108.015C215.431 108.489 218.435 107.606 220.645 105.649L250.996 78.7799C255.506 74.7868 255.489 67.7417 250.958 63.7715L46.9087 -115.04Z" fill="url(#paint0_radial_12_761)"/>
+                <defs>
+                <radialGradient id="paint0_radial_12_761" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(116.139 8.3038) rotate(41.2286) scale(149.306 47.1379)">
+                <stop stop-color="#00C1FF"/>
+                <stop offset="1" stop-color="#00C1FF" stop-opacity="0.42"/>
+                </radialGradient>
+                </defs>
+            </svg>
+
+            <h2 class="text-center pos-fix z-1 wf fw-bold">Welcome!</h2>
+            <div class="bg-card clip mgx mgt-20">
+                <DataList
+                TModel="IDisplayable" Models="Categories"
+                Context="cat"
+                GridWidth="100"
+                Features="DataListFeatures.Default|DataListFeatures.Bordered"
+                li-class="bd stack pd">
+                            <i class="fsz-50 mgt mgx-a @cat.Model.Icon.Icon"></i>
+                            <h4 class="text-center mg-0">@cat.Model.Title</h4>
+                </DataList>
+            </div>
+            <div class="bg-card">
+                <ErrandBidListItems></ErrandBidListItems>
+                <Button class="mdi mdi-run bg-primary round fsz-30 hx-05 wx-05 r-0 b-0 pos-abs mgb-25 mgr-10"></Button>
+            </div>
+    </WizardStep>
+    <WizardStep>
+        <div class="pd row">
+            <h3 class="col-5">Currently Available</h3>
+            <i class=" col-5 mg-a fsz-20 text-right mdi mdi-sort"></i>
+        </div>
+        <ErrandBidListItems></ErrandBidListItems>
+        <Button class="mdi mdi-run bg-primary round fsz-30 hx-05 wx-05 r-0 b-0 pos-abs mgb-25 mgr-10"></Button>
+    </WizardStep>
+
+    @*<WizardStep>
+        <div class="shadow pd"><h4 class="pd-0">Submission of Letter</h4></div>
+        <div class="bg-card hx-2 "></div>
+        <div class="row">
+            <div class="col-5 text-right mgr"><p>Title:</p></div>
+            <div class="col-5"><p>Submission of Letter</p></div>
+        </div>
+        <div class="row">
+            <div class="col-5 text-right mgr"><p>Average Distance:</p></div>
+            <div class="col-5"><p>200km</p></div>
+        </div>
+        <div class="row">
+            <div class="col-5 text-right mgr"><p>Expire Time:</p></div>
+            <div class="col-5 op-7 flex mg-a">
+                <SevenSegmentTimeSpan Span="TimeSpan.FromMinutes(200)" Height="10" Width="10">
+                </SevenSegmentTimeSpan></div>
+        </div>
+        <h4 class="pdx mg-0" >Contract Terms:</h4>
+        <p class="pdx bdb mg-0 text-italic">I need someone to drop a letter at shoprite obalende bus stop as soon as possible</p>
+        <Button class="mdi mdi-run bg-primary round fsz-30 hx-05 wx-05 r-0 b-0 pos-abs mgb-25 mgr-10"></Button>
+    </WizardStep>
+    <WizardStep>
+         <div class="shadow pd"><h4 class="pd-0">Submission of Letter</h4></div>
+        <div class="bg-card hx-2 "></div>
+        <div class="pdx-5">
+            <h3>Place your bid</h3>
+            <div class="row">
+                <div class="col-a flex">
+                    <b class="mg-a">#</b>
+                </div>
+                <div class="col-10">
+                    <EditForm Model="new object()" Context="__" Class="flex">
+                        <InputEditor TValue="string" @bind-Value="AskingPrice" Class="bg-primary-01 fsz-25"
+                            Theme="Theme.Primary" PlaceHolder="Your asking price"
+                            Features="(InputEditorFeatures.Default&~InputEditorFeatures.BorderBottom)|InputEditorFeatures.PlaceHolder">
+                        </InputEditor>
+                        <Button Class="fsz-30 wx-07 mdi mdi-check corner-r-3" Theme="Theme.Primary"
+                            Features="(ButtonFeatures.Default|ButtonFeatures.Large)&~ButtonFeatures.Corner"></Button>
+                    </EditForm>
+                </div>
+            </div>
+            <em class="d-block mgt">Please note that the platform charges 10% of your bidding</em>
+            <h3 class="mgb-2">Your Pitch</h3>
+            <div>
+                <EditForm Model="new object()" Context="__">
+                    <InputEditor TValue="string" @bind-Value="Pitch" Type="InputType.TextArea" Class="bg-primary-01 "
+                        Theme="Theme.Primary" PlaceHolder="Convince your contractor you are the best man for the job"
+                        Features="(InputEditorFeatures.Default&~InputEditorFeatures.BorderBottom)|InputEditorFeatures.PlaceHolder">
+                    </InputEditor>
+                </EditForm>
+            </div>
+            <Button class=" bg-primary round hx-05 wx-05 r-0 b-0 pos-abs mgb-25 mgr-10 fw-bold">Bid</Button>
+            
+        </div>
+    </WizardStep>
+    <WizardStep>
+        <div class="stack hf">
+            <div class="mg-a">
+                <h3 class="text-center fw-bold">Title</h3>
+                <div class="round hx-1 wx-1 mg-a bg-card stack"><i class="mdi mdi-message-question-outline fsz-50 mg-a"></i></div>
+                <h4 class="text-center ">What help would you want?</h4>
+                <div>
+                    <EditForm Model="new object()" Context="__">
+                    <InputEditor TValue="string" @bind-Value="Pitch" Type="InputType.TextArea" Class="bg-primary-01 "
+                        Theme="Theme.Primary" PlaceHolder="Wash clothes"
+                        Features="(InputEditorFeatures.Default&~InputEditorFeatures.BorderBottom)|InputEditorFeatures.PlaceHolder">
+                    </InputEditor>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </WizardStep>
+    <WizardStep>
+        <div class="stack hf">
+            <div class="mg-a">
+                <h3 class="text-center fw-bold">Price</h3>
+                <div class="round hx-1 wx-1 mg-a bg-card stack"><i class="mdi mdi-currency-ngn fsz-50 mg-a"></i></div>
+                <h4 class="text-center ">How much would you pay?</h4>
+                <div>
+                    <EditForm Model="new object()" Context="__">
+                    <InputEditor TValue="string" @bind-Value="Price" Type="InputType.TextArea" Class="bg-primary-01 "
+                        Theme="Theme.Primary" PlaceHolder="3,000"
+                        Features="(InputEditorFeatures.Default&~InputEditorFeatures.BorderBottom)|InputEditorFeatures.PlaceHolder">
+                    </InputEditor>
+                    <InputEditor TValue="string" @bind-Value="BidPrice" Type="InputType.CheckBox" Class="bg-primary">
+                    </InputEditor>
+                    
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </WizardStep>*@
+</WizardSteps>
+</EditForm>

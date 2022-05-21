@@ -1,0 +1,461 @@
+@inherits BaseComponent
+@page "/IPC"
+
+<div class="hv-10 stack pos-rel">
+    <div class="pos-abs t-0 l-0 r-0 b-0" style="background-image:url('_content/Nursery.Core.Client/ipc/banner.png');filter:blur(2px)">
+    </div>
+    <div class="pos-abs t-0 l-0 r-0 b-0 bg-dark-08">
+    </div>
+    <div class="pdy pdx-10 bg-dark-03 z-2 cl-white">
+        <h1>💰🌱Money Planter</h1>
+    </div>
+    <div class="mg-a text-center z-2 cl-white">
+        <h1 class="fsz-60">You want Financial Freedom?</h1>
+        <h2 class="fsz-30">The journey begins here!</h2>
+        <div class="flex flex-center-x">
+            <Button Theme="Theme.Primary" 
+                target="_blank"
+                PageLink="http://member.iprimecapital.com:80/Account/ChooseSignUp?referrerNumber=IB388833&referrerLinkType=1" Class="mgr stack miwx-3"
+                 Features="(ButtonFeatures.Default|ButtonFeatures.Large)&~ButtonFeatures.Shadow">
+                <h1 class="mg-a">SIGN UP</h1>
+                <p class="op-9">Signing up is free</p>
+            </Button>
+            @* <Button Theme="Theme.Error" 
+                PageLink="" Class="mgr stack"
+                 Features="(ButtonFeatures.Default|ButtonFeatures.Large)&~ButtonFeatures.Shadow&~ButtonFeatures.Corner">
+                <h1 class="mg-a">TRACK MY EARNINGS</h1>
+            </Button> *@
+        </div>
+    </div>
+</div>
+
+<div class="pos-fix mawx-15 corner z-2 bg-black shadow pd" style="bottom:0vh;right:0">
+    <Quotable>
+        @context.Model.Text - <i class="nowrap">@context.Model.Author</i>
+    </Quotable>
+</div>
+
+<div class="pd flex mgt--10 mgb--10">
+    <div class="mg-a wx-1 hx-1 round bg-primary shadow flex z-2">
+        <i class="mdi mdi-chevron-down mg-a fsz-90"></i>
+    </div>
+</div>
+
+<Defer class="bg-fill" style="background-image:url('_content/Nursery.Core.Client/ipc/finance-story.jpg')">
+    <div class="animated pd fadeInUp slow mihx-5 mawx-10 mgx-a stack">
+        <h1 class="text-center bg-primary mgx-a pd corner-2">✋ But first, let me tell you a story 📝</h1>
+        <div class="container">
+            <div class="row responsive">
+                <div class="col-5 miwx-3">
+                    <div class="lh-2 bg-white-08 pd corner">
+                        <p>
+                            Years📅 ago, the holy grail of financial💲 freedom includes
+                            stocks👎 and even bank's 💵
+                            fixed deposit🧧 and savings💰.                 
+                        </p>
+                        <p>
+                            I mean you could put substantial 
+                            amount💰 back then and wait for monthly📆 
+                            or yearly passive income🤑🤑
+                            enough to take care of yourself and families👪.
+                        </p>
+                        <p>
+                            Today👇, fixed deposit🧧 now pays a friend🤝 of mine just 
+                            <b class="cl-error">₦10,000</b>😭
+                            for a whole year on an investment of 
+                            <b class="cl-success">₦1M</b>🤔
+                        </p>
+                        <p>
+                            And if you keep unsued fund in your bank💵 savings💰, 
+                            they keep deducting from it until it clocks 
+                            <b class="mdi mdi-zero cl-error">zero0️⃣;</b> 
+                            maintenenace🧹 fee,
+                            SMS📨 alert,
+                            transaction🚌 charges, 
+                            stampduty📩 
+                            and the list goes on and on.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-5 miwx-3 stack">
+                    <div class="bg-white-08 pd corner mg-a flex">
+                        <i class="mdi mdi-bell cl-warning mgy-a fsz-80"></i>
+                        <h1 class="fsz-30 text-center mgy-a cl-fatal">Redundant banking is not the best option</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Defer>
+
+<div class="pd flex mgt--10 mgb--10">
+    <div class="mg-a wx-1 hx-1 round bg-primary shadow flex z-2">
+        <i class="mdi mdi-chevron-down mg-a fsz-90"></i>
+    </div>
+</div>
+
+<Defer class="bg-dark-01 bg-fill"  style="background-image:url('_content/Nursery.Core.Client/ipc/work.jpg')">
+    <div class="pd animated fadeInUp slow mawx-10 mgx-a stack">
+        <h1 class="text-center bg-primary mgx-a pd corner-2">😵 So what is the alternative? 😵</h1>
+         <div class="container">
+            <div class="row responsive">
+                <div class="col-5 miwx-3">
+                    <div class="lh-2 bg-white-08 pd corner">
+                        <p>
+                            Of course, you are not going to keep your 
+                            money💸 in 
+                            <span>
+                            <Popup Relative="true" 
+                                Class="d-inline"
+                                HorizontalPosition="PositionX.RightToLeft"
+                                pop-class="bg-card pd miwx-3 corner shadow">
+                                <ChildContent>
+                                    <a class="clickable"><em>kolo</em></a>,
+                                </ChildContent>
+                                <Pop>
+                                    <h3 class="mg-0 lh-1">Kolo</h3>
+                                    <p>
+                                        An in-house saving container made of 
+                                        woods or plastic where people keep their daily earnings.
+                                    </p>
+                                </Pop>
+                            </Popup>
+                            </span>
+                        this is the 20th century afterall.
+                        </p>
+                        <p>
+                            Nobody get wealthy🔥
+                            by simply saving 💰 money💸, 
+                            but they do by putting their money💸 to work⚒.
+                        </p>
+                        <p><b>But what work⚒?</b></p>
+                        <p>
+                            While there are different ways🛤 of putting your 
+                            money💸 to work⚒ online, 
+                            I will only recommend that which
+                            I have tested and trusted🎺.
+                        </p>
+                        <div class="flex">
+                            <p class="mgy-a">And wait for it.....</p>
+                            <div class="fill"></div>
+                            <h1 class="cl-fatal"><em>FOREX</em></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 miwx-3 stack">
+                    <div class="bg-white-08 pd corner mg-a flex">
+                        <i class="cl-fatal mgy-a fsz-80 mgr">⚒</i>
+                        <h1 class="mgy-a fsz-30 text-center cl-fatal">
+                            Put your money💸 to work.
+                            Enough sleeping😴 in banks.
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Defer>
+
+<div class="pd flex mgt--10 mgb--10">
+    <div class="mg-a wx-1 hx-1 round bg-primary shadow flex z-2">
+        <i class="mdi mdi-chevron-down mg-a fsz-90"></i>
+    </div>
+</div>
+
+<Defer class="bg-dark-01 bg-fill"  style="background-image:url('_content/Nursery.Core.Client/ipc/forex.jpg')">
+    <div class="pd animated fadeInUp slow mawx-10 mgx-a stack">
+        <h1 class="text-center bg-primary mgx-a pd corner-2">📈 FOREX 📉</h1>
+         <div class="container">
+            <div class="row responsive">
+                <div class="col-5 miwx-3">
+                    <div class="lh-2 bg-white-08 pd corner">
+                        <p>
+                            Scary😨 huh? Ain't that those weird🙃 looking 
+                            screens with charts📈, candles📊 and whatnots going all 
+                            around the place and you have to sit down
+                            with it all day to predict🎲 the direction?
+                        </p>
+                        <p>
+                            Yeah, we have been there before too, 
+                            but you don't have to.
+                        </p>
+                        <p>
+                            By the way, what do you think banks💵 do with 
+                            your money💸 afterall?
+                            Forex of course and they earn massively🔥🔥🔥 only 
+                            to give you some stipends from it and then send
+                            you some bank alerts✉ that eventually erode away the stipend.
+                        </p>
+                        <p>
+                            Why do they keep blocking cryptos👛 and all?
+                            Because we no longer put our money💸 in banks💵.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-5 miwx-3 stack">
+                    <div class="bg-white-08 pd corner mg-a flex">
+                        <i class="cl-warning mgy-a fsz-80 mgr">📊</i>
+                        <h1 class="mgy-a fsz-30 text-center cl-fatal">
+                            FOREX is real as the light of the day.
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Defer>
+
+<div class="pd flex mgt--10 mgb--10">
+    <div class="mg-a wx-1 hx-1 round bg-primary shadow flex z-2">
+        <i class="mdi mdi-chevron-down mg-a fsz-90"></i>
+    </div>
+</div>
+
+<Defer class="bg-dark-01 bg-fill"  style="background-image:url('_content/Nursery.Core.Client/ipc/robot.jpg')">
+    <div class="pd animated fadeInUp slow mawx-10 mgx-a stack">
+        <h1 class="text-center bg-primary pd mgx-a corner-2">💖 Tell me about it already! ❓</h1>
+         <div class="container">
+            <div class="row responsive">
+                <div class="col-5 miwx-3">
+                    <div class="lh-2 bg-white-08 pd corner">
+                        <p>
+                            Forgive my ranting🦜, 
+                            but really you don't have to put your money💸
+                            into some ponzi🔺 scheme
+                            or sit with a forex broker screens all day 
+                            to earn from your investment💰.
+                        </p>
+                        <p>
+                            What you do however is invest💰 it where it works⚒ daily for
+                            you and you earn the profit🔥🔥🔥.
+
+                        </p>
+                        <p>
+                            And the beauty of it is that you don't have to entrust 
+                            your money💸 to a fellow human🧍‍♂️ being, not even me.
+                        </p>
+                        <p>
+                            But rather a robot🤖 that trade💹 for you every market day on forex.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-5 miwx-3 stack">
+                    <div class="bg-white-08 pd corner mg-a flex">
+                        <i class="cl-warning mgy-a fsz-80 mgr">🤖</i>
+                        <h1 class="mgy-a fsz-30 text-center cl-fatal">
+                            A robot🤖 that manage your forex account🧾 and trade💹 for you.
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Defer>
+
+<div class="pd flex mgt--10 mgb--10">
+    <div class="mg-a wx-1 hx-1 round bg-primary shadow flex z-2">
+        <i class="mdi mdi-chevron-down mg-a fsz-90"></i>
+    </div>
+</div>
+
+<Defer class="bg-dark-01 bg-fill"  style="background-image:url('_content/Nursery.Core.Client/ipc/money.jpg')">
+    <div class="pd animated fadeInUp slow mawx-10 mgx-a stack">
+        <h1 class="text-center bg-primary mgx-a pd corner-2">😱 But I am scared of loosing my money! 💰</h1>
+         <div class="container">
+            <div class="row responsive">
+                <div class="col-5 miwx-3">
+                    <div class="lh-2 bg-white-08 pd corner">
+                        <p><b>🤷‍♂️ Who isn't 🤷‍♀️?</b></p>
+                        <p>
+                            I was scared😱😨 too, didn't trust, 
+                            so I started with a minimal investment💲 
+                            I could afford to loose.
+                            Tested the platform and its robot🤖 with that for some time and
+                            then increased my investment💲 gradually. 
+                        </p>
+                        <p class="cl-error fw-bold">
+                            Like most will tell you though, no matter how 
+                            fascinating😲 an investment💲, looks, 
+                            it is wisdom to stake it gradually and not commit
+                            all livelihood into it.
+                        </p>
+                        <p class="fw-bold">
+                            That been said, it is worse not taking advantage of
+                            opportunities too. Well unless you would rather prefer
+                            the bank💵 deductions➖ anyway.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-5 miwx-3 stack">
+                    <div class="bg-white-08 pd corner mg-a flex">
+                        <i class="cl-warning mgy-a fsz-80 mgr">🤲</i>
+                        <h1 class="mgy-a fsz-30 text-center cl-fatal">
+                            Your money💰 grows💗 in a safe hand.
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Defer>
+
+<div class="pd flex mgt--10 mgb--10">
+    <div class="mg-a wx-1 hx-1 round bg-primary shadow flex z-2">
+        <i class="mdi mdi-chevron-down mg-a fsz-90"></i>
+    </div>
+</div>
+
+@{
+    var files = new string[]
+    {
+        "WhatsApp Image 2022-02-22 at 7.38.32 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.38.33 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.38.34 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.38.35 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.38.36 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.45.31 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.45.33 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.45.34 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.45.40 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.45.44 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.45.48 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 7.01.33 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 7.01.34 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 7.01.35 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 7.01.36 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 7.01.37 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.08.47 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.08.49 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.08.50 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.08.51 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.08.53 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.08.54 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.08.56 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.08.57 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.08.58 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.09.00 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.09.01 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.09.02 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.09.03 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.09.04 AM.jpeg",
+        "WhatsApp Image 2022-02-23 at 9.09.07 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 3.46.46 PM.jpeg",
+        "WhatsApp Image 2022-02-24 at 4.47.48 PM.jpeg",
+        "WhatsApp Image 2022-02-24 at 7.17.25 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 7.17.26 AM (1).jpeg",
+        "WhatsApp Image 2022-02-24 at 7.17.26 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 7.17.27 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 10.16.21 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 10.16.22 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 10.16.23 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 10.16.24 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 10.16.25 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 10.16.26 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 10.16.27 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 10.16.29 AM.jpeg",
+        "WhatsApp Image 2022-02-24 at 10.16.30 AM.jpeg",
+        "WhatsApp Image 2022-02-25 at 10.04.28 AM.jpeg",
+        "WhatsApp Image 2022-02-25 at 10.04.29 AM.jpeg",
+        "WhatsApp Image 2022-02-25 at 10.04.36 AM.jpeg",
+        "WhatsApp Image 2022-02-25 at 10.04.43 AM.jpeg",
+        "WhatsApp Image 2022-02-25 at 10.04.47 AM.jpeg",
+        "WhatsApp Image 2022-02-25 at 10.53.56 AM.jpeg",
+        "WhatsApp Image 2022-02-25 at 10.54.11 AM (1).jpeg",
+        "WhatsApp Image 2022-02-25 at 10.54.11 AM (2).jpeg",
+        "WhatsApp Image 2022-02-25 at 10.54.11 AM.jpeg",
+        "WhatsApp Image 2022-02-25 at 10.54.12 AM.jpeg",
+        "WhatsApp Image 2022-02-25 at 10.55.48 AM.jpeg",
+        "WhatsApp Image 2022-02-21 at 6.34.34 PM.jpeg",
+        "WhatsApp Image 2022-02-21 at 6.34.35 PM.jpeg",
+        "WhatsApp Image 2022-02-21 at 6.34.36 PM.jpeg",
+        "WhatsApp Image 2022-02-21 at 6.34.37 PM (1).jpeg",
+        "WhatsApp Image 2022-02-21 at 6.34.37 PM.jpeg",
+        "WhatsApp Image 2022-02-22 at 5.30.31 AM (1).jpeg",
+        "WhatsApp Image 2022-02-22 at 5.30.31 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.38.30 AM.jpeg",
+        "WhatsApp Image 2022-02-22 at 7.38.31 AM.jpeg",
+    };
+}
+
+<Defer class="bg-dark-09 bg-fill"  style="background-image:url('_content/Nursery.Core.Client/ipc/trumpet.jpg');backdrop-filter:blur(2px)">
+    <div class="pd animated fadeInUp slow mawx-10 mgx-a stack">
+        <h1 class="text-center bg-primary pd mgx-a corner-2">🔥🔥🔥 Testimonies 🔥🔥🔥</h1>
+         <div class="container">
+            <div class="row responsive">
+                <div class="col-5 miwx-3">
+                    <div class="lh-2 bg-white-08 pd corner">
+                        <DataList TModel="string"
+                            Models="files"
+                            li-class="hx-6 mgx"
+                            Features="DataListFeatures.Default|DataListFeatures.CarouselHorizontalView">
+                            <img class="hf" src="@($"_content/Nursery.Core.Client/ipc/testimonies/{context.Model}")">
+                        </DataList>
+                    </div>
+                </div>
+                <div class="col-5 miwx-3 stack">
+                    <div class="bg-white-08 pd corner mg-a flex">
+                        <i class="cl-warning mgy-a fsz-80 mgr">🔥</i>
+                        <h1 class="mgy-a fsz-30 text-center cl-fatal">
+                            Don't take my words for it, but these<br>🔥🔥🔥.
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Defer>
+
+<div class="pd flex mgt--10 mgb--10">
+    <div class="mg-a wx-1 hx-1 round bg-primary shadow flex z-2">
+        <i class="mdi mdi-chevron-down mg-a fsz-90"></i>
+    </div>
+</div>
+
+<Defer class="bg-dark-01 bg-fill"  style="background-image:url('_content/Nursery.Core.Client/ipc/shake.jpg')">
+    <div class="pd animated fadeInUp slow mawx-10 mgx-a stack">
+        <h1 class="text-center bg-primary pd mgx-a corner-2">👋 Give me this robot already! 🤖</h1>
+         <div class="container">
+            <div class="row responsive">
+                <div class="col-5 miwx-3">
+                    <div class="lh-2 bg-white-08 pd corner">
+                        <p>
+                            Ready🏃‍♂️ to begin the journey🏇?
+                        </p>
+                        <p>
+                            Ready🏃‍♂️ to start earning your passive income🤑.
+                        </p>
+                        <p>
+                            But even if you re not ready yet to make 
+                            the financial💸 commitment, 
+                            the first step is free.
+                        </p>
+                        <p>
+                            Click the button below and register your interest.
+                        </p>
+                        <Button Theme="Theme.Primary" 
+                        target="_blank"
+                        PageLink="http://member.iprimecapital.com:80/Account/ChooseSignUp?referrerNumber=IB388833&referrerLinkType=1" Class="mgr stack"
+                        Features="(ButtonFeatures.Default|ButtonFeatures.Large)">
+                            <h3 class="mg-a">SIGN ME UP</h3>
+                        </Button>
+                    </div>
+                </div>
+                <div class="col-5 miwx-3 stack">
+                    <div class="bg-white-08 pd corner mg-a flex">
+                        <i class="cl-warning mgy-a fsz-80 mgr">🤖</i>
+                        <h1 class="mgy-a fsz-30 text-center cl-fatal">
+                            Smart Robot, Genius Robot.
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Defer>
+
+
+<div class="bg-dark pd mgt-10 row">
+    <div class="col-5">
+        © Money Planter @(DateTime.UtcNow.Year)
+    </div>
+</div>

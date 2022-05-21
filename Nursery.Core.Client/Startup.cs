@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Nursery.Core.Client.Dispatch.Shared;
 using Nursery.Core.Client.Dispatch.Models;
 using LivingThing.Core.Frameworks.Client.Interface;
+using Castle.Core.Configuration;
+using LivingThing.Core.Frameworks.Common.Configurations;
+using LivingThing.Core.Community.All;
 
 namespace Nursery.Core.Client
 {
@@ -21,10 +24,12 @@ namespace Nursery.Core.Client
             services.AddInputField<DispatchImagesWizardStepInput, DispatchImagesWizardStep>();
             services.AddInputField<DispatchPickupLocationWizardStepInput, DispatchPickupLocationWizardStep>();
             services.AddInputField<DispatchDeliveryLocationWizardStepInput, DispatchDeliveryLocationWizardStep>();
+            services.AddScoped<IConfigurationParser, ConfigurationParser>();
             services.AddCommonServices();
             services.AddClientFrameworks();
             services.AddIdentityCommon();
             services.AddIdentityClient();
+            services.AddCommunity();
         }
     }
 }

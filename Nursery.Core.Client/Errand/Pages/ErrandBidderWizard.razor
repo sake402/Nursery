@@ -1,0 +1,40 @@
+﻿@page "/Errand/Bid"
+
+
+<div class="shadow pd"><h4 class="pd-0">Submission of Letter</h4></div>
+<div class="bg-card hx-2 "></div>
+<div class="pdx-5">
+    <h3>Place your bid</h3>
+    <div class="row">
+        <div class="col-a flex">
+            <b class="mg-a">#</b>
+        </div>
+        <div class="col-10">
+            <EditForm Model="new object()" Context="__" Class="flex">
+                <InputEditor TValue="string" @bind-Value="AskingPrice" Class="bg-primary-01 fsz-25"
+                             Theme="Theme.Primary" PlaceHolder="Your asking price"
+                             Features="(InputEditorFeatures.Default&~InputEditorFeatures.BorderBottom)|InputEditorFeatures.PlaceHolder">
+                </InputEditor>
+                <Button Class="fsz-30 wx-07 mdi mdi-check corner-r-3" Theme="Theme.Primary"
+                        Features="(ButtonFeatures.Default|ButtonFeatures.Large)&~ButtonFeatures.Corner"></Button>
+            </EditForm>
+        </div>
+    </div>
+    <em class="d-block mgt">Please note that the platform charges 10% of your bidding</em>
+    <h3 class="mgb-2">Your Pitch</h3>
+    <div>
+        <EditForm Model="new object()" Context="__">
+            <InputEditor TValue="string" @bind-Value="Pitch" Type="InputType.TextArea" Class="bg-primary-01 "
+                         Theme="Theme.Primary" PlaceHolder="Convince your contractor you are the best man for the job"
+                         Features="(InputEditorFeatures.Default&~InputEditorFeatures.BorderBottom)|InputEditorFeatures.PlaceHolder">
+            </InputEditor>
+        </EditForm>
+    </div>
+    <Button class=" bg-primary round hx-05 wx-05 r-0 b-0 pos-abs mgb-25 mgr-10 fw-bold">Bid</Button>
+
+</div>
+
+@code{
+    public string AskingPrice { get; set; }
+    public string Pitch { get; set; }
+}

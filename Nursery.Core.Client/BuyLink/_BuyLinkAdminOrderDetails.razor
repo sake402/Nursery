@@ -1,0 +1,74 @@
+@namespace LivingThing.Core.Community.BuyLink.Client.Shared
+@inherits BaseParameterizedComponent<CommunityBuyLinkOrderModel>
+@using LivingThing.Core.Frameworks.Common.Types
+@using LivingThing.Core.Community.BuyLink.Common.Models
+@using LivingThing.Core.Community.BuyLink.Client.Shared
+
+<div class="bg-card clip bdl bdw-3 bd-primary">
+    <h3 class="mgx">Order "@ViewModel.Title"</h3>
+    <div class="row">
+        <div class="col-a miwx-2">
+            <div>
+                <Media></Media>
+            </div>
+            <div class="text-center">
+                <h4 class="mg-0">User Account Title</h4>
+                <small class="op-9 d-block">User Slogan</small>
+                <span class="mgt-2 d-block">11 total orders</span>
+            </div>
+        </div>
+        <div class="col-10 pdl">
+            <Tabs Theme="Theme.Primary" InitialViewIndex="0" 
+                TabsFeatures="TabsFeatures.Default|TabsFeatures.TabsBorder|TabsFeatures.TabBorder|TabsFeatures.TabsSelectedBorder">
+                <Tab>
+                    <Title Context="tt">
+                        <b>Information</b>
+                    </Title>
+                    <ChildContent Context="cc">
+                        <PropertySheet Features="DataListFeatures.Default|DataListFeatures.Bordered"
+                                PadContent="2"
+                                Target="@(new Dictionary<string, object>(){["Date"] = DateTime.UtcNow, ["Products"] = 5, ["Order Status"] = "Under Query"})"></PropertySheet>
+                    </ChildContent>
+                </Tab>
+                <Tab Class="pd">
+                    <Title><b>Queries</b></Title>
+                    <ChildContent>
+                        <BuyLinkQueries ViewModel="ViewModel"></BuyLinkQueries>
+                        <FormBuilder TModel="CommunityBuyLinkQueryPostModel" @bind-Model="query" OnSubmit="Query">
+                            <Submit>
+                                <Button Theme="Theme.Primary" type="submit">Query</Button>
+                            </Submit>
+                        </FormBuilder>
+                    </ChildContent>
+                </Tab>
+                <Tab>
+                    <Title Context="tt">
+                        <b>Chat</b>
+                    </Title>
+                    <ChildContent Context="cc">
+
+                    </ChildContent>
+                </Tab>
+            </Tabs>
+        </div>
+    </div>
+
+    <h3 class="mgx">Products</h3>
+    @* <DataList TModel="CommunityBuyLinkPostModel" Models="Products" Features="DataListFeatures.Default|DataListFeatures.CarouselHorizontalView">
+        <ChildContent>
+            <BuyLinkSummary ViewModel="@context.Model"></BuyLinkSummary>
+        </ChildContent>
+    </DataList> *@
+    <DataTable Class="mgt" 
+        Features="DataListFeatures.Default|DataListFeatures.Selectable|DataListFeatures.Bordered" 
+        TModel="CommunityBuyLinkPostModel" 
+        Models="@Products" 
+        Context="product">
+        <ChildContent>
+            <DataTableColumnsFromSchema TModel="CommunityBuyLinkPostModel"></DataTableColumnsFromSchema>
+        </ChildContent>
+        <Details Context="detail">
+            <_BuyLinkAdminProductDetails ViewModel="detail"></_BuyLinkAdminProductDetails>
+        </Details>
+    </DataTable>
+</div>

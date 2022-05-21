@@ -1,0 +1,128 @@
+﻿@import '../wwwroot/css/ColorStyles.scss';
+body{
+    background-image:url(../wwwroot/back.jpg);
+}
+.landingpage {
+    background-color: $secondarycolour;
+    height: 100vh;
+
+    .wrap {
+        padding: 5px;
+        overflow: auto;
+    }
+
+    h1 {
+        color: $primarycolour;
+    }
+
+    h2 {
+        color: $tertiarycolour;
+    }
+
+    .name {
+        margin-top: 40px;
+        text-align: center;
+
+        input {
+            padding: 8px;
+            color: $primarycolour;
+            background: $secondarycolour;
+            border-radius: $round-corner;
+            border: 1px solid $primarycolour;
+        }
+
+        i {
+            color: $tertiarycolour;
+            margin: auto;
+            margin-right: 5px;
+        }
+
+        .contbtn {
+            padding: 10px 10px;
+            color: $secondarycolour;
+            background-color: $primarycolour;
+
+            i {
+                color: $secondarycolour;
+            }
+        }
+    }
+
+    button {
+        i {
+        }
+    }
+
+    #others {
+    }
+
+    .other-content {
+        margin: auto;
+        text-align: center;
+        margin-top: 50px;
+
+        p {
+            label {
+                select {
+                    padding: 10px;
+                    border: 2px solid $secondarycolour;
+                    border-radius: 5px;
+                    background-color: $primarycolour;
+                    color: $secondarycolour;
+                    margin-top: 5px;
+
+                    option {
+                    }
+                }
+            }
+        }
+
+        button {
+            background-color: $tertiarycolour;
+            padding: 15px 25px;
+        }
+    }
+
+    button {
+        padding: 14px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 20px;
+        background: $primarycolour;
+        color: $white;
+        border: none;
+    }
+
+
+    .hist {
+        margin: 5px;
+        margin-top: 50px;
+        text-align: center;
+        color: $primarycolour;
+    }
+
+    .history {
+        color: $primarycolour;
+        overflow: auto;
+
+
+        .wrap {
+            margin: auto;
+
+            table {
+                tr {
+                    td {
+                        outline: 1px solid $primarycolour;
+                        white-space: nowrap;
+                        text-align: center;
+                        padding: 2px 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+}

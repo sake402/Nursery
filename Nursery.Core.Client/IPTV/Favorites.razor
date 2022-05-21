@@ -1,0 +1,80 @@
+@page "/IPTV/Favorites"
+
+<div class="stack hf">
+    <TopNav></TopNav>
+    <div class="fill stack clip">
+        <div class="row hp-50">
+            <div class="col-5">
+                <div class="bg-black wf hf flex">
+                    <h2 class="mg-a">Video Preview</h2>
+                </div>
+            </div>
+            <div class="col-5 flex pd">
+                <PageNav></PageNav>
+            </div>
+        </div>
+        <div class="row hp-50">
+            <div class="col-5 pd scroll">
+                <DataList TModel="int" Models="Enumerable.Range(1,10)"
+                        GridWidth="150"
+                        GridGap="10"
+                        Class="hf"
+                        Features="DataListFeatures.Default|DataListFeatures.Selectable"
+                        li-class="corner clip pos-rel">
+                        <img class="hx-2 d-block mgx-a" src="https://image.tmdb.org/t/p/original/tYmh36DP4rEmRAr3exAuM9CJTOG.jpg">
+                        <div class="pos-abs b-0 l-0 r-0 bg-dark-05 text-center pd">Movie Title</div>
+                @* <Media
+                    Height="150"
+                    Width="100" 
+                    Class="wx-1 hx-15" 
+                    Features="MediaFeatures.Default&~MediaFeatures.Responsive"
+                    Url="https://image.tmdb.org/t/p/original/tYmh36DP4rEmRAr3exAuM9CJTOG.jpg"></Media> *@
+            </DataList>
+            </div>
+            <div class="col-5">
+                <SelectSheet Class="hf" TModel="int" Side="SideBarSide.Bottom" 
+                    SideBarFeatures="SideBarFeatures.Default|SideBarFeatures.Dynamic|SideBarFeatures.Cover|SideBarFeatures.BackDrop|SideBarFeatures.BackDropClose|SideBarFeatures.Closable">
+                    <ChildContent>
+                        <DataTable Class="hf scroll" 
+                                TModel="int" 
+                                Models="Enumerable.Range(1,10)"
+                                Features="DataListFeatures.Default|DataListFeatures.Selectable"
+                                PadContent="1"
+                                th-class="pos-sticky"
+                                thead-class="z-2"
+                                tr-class="pd-1">
+                            <DataTableColumn TModel="int">
+                                <Header Context="_">
+                                    Time
+                                </Header>
+                                <ChildContent Context="_">
+                                    <div class="row">
+                                        <div class="col-a stack">
+                                            <i class="mg-a mdi mdi-plus-circle cl-primary"></i>
+                                        </div>
+                                        <div class="col-10 pdl-1">
+                                            <h4 class="mg-0 nowrap">11:00</h4>
+                                        </div>
+                                    </div>
+                                </ChildContent>
+                            </DataTableColumn>
+                            <DataTableColumn TModel="int">
+                                <Header Context="_">
+                                    Title
+                                </Header>
+                                <ChildContent Context="_">
+                                    PRogram Title
+                                </ChildContent>
+                            </DataTableColumn>
+                        </DataTable>
+                    </ChildContent>
+                    <Selected Context="selected">
+                        <div class="miwh-2 pd-10">
+                            <p>EPG Description</p>
+                        </div>
+                    </Selected>
+                </SelectSheet>
+            </div>
+        </div>
+    </div>
+</div>

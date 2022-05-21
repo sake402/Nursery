@@ -1,0 +1,61 @@
+<DataList TModel="int" Models="new []{1,2,3,4,5}"
+        Features="DataListFeatures.Default|DataListFeatures.Bordered" Context="user">
+            <div class="row pd ">
+                <div class="col-a flex">
+                    <div class=" hx-05 wx-05 flex mg-a round clip theme-card">
+                       <i class="mg-a fsz-40 mdi mdi-account"></i>
+                    </div>
+                </div>
+                <div class="col-10 mgl">
+                    <div class="row">
+                        <div class="col-10">
+                            <h3 class="mgt-0 fw-bold mgb-2">Home Cleaning</h3>
+                            <p class="mg-0  ">My Tv is not displaying well</p>
+                        </div>
+                        <div class="col-a  text-right fw-bold mgt fsz-small pos-rel">
+                            <CostBg></CostBg>
+                                        <span class="pos-abs t-0 r-0 l-0 b-0 flex">
+                                        <span class="mgx-a mgt-4 cl-white">
+                                        1500
+                                        </span>
+                                        </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-a">
+                            <Popup VerticalPosition="LivingThing.Core.Frameworks.Client.Components.Position.PositionY.BottomToTop" pop-class="wx-15 hx-15 corner shadow" Relative="true">
+                                <ChildContent>
+                                    <Button Features="ButtonFeatures.Default|ButtonFeatures.Small" class="bg-primary nowrap shadow-0"><i class="mdi mdi-map-marker"></i>IPaja</Button>
+                                </ChildContent>
+                                <Pop>
+                                    <LeafletMap></LeafletMap>
+                                </Pop>
+                            </Popup>
+                        </div>
+                        <div class="fill stack">
+                            <small class="mgx-a ">50m away</small>
+                           <DistanceArrow></DistanceArrow>
+                        </div>
+                        <div class="col-a text-right">
+                            <Popup VerticalPosition="LivingThing.Core.Frameworks.Client.Components.Position.PositionY.BottomToTop" pop-class="wx-15 hx-15 corner shadow" Relative="true">
+                                <ChildContent>
+                                    <Button Features="ButtonFeatures.Default|ButtonFeatures.Small" class="bg-error nowrap shadow-0 "><i class="mdi mdi-map-marker"></i> Obalende</Button>
+                                </ChildContent>
+                                <Pop>
+                                    <LeafletMap></LeafletMap>
+                                </Pop>
+                            </Popup>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5 op-7 text-right">Expires in:</div>
+                         <div class="col-5 op-7 flex mg-a">
+                             <SevenSegmentTimeSpan Span="TimeSpan.FromMinutes(200)" Height="10" Width="10">
+                            </SevenSegmentTimeSpan>
+                         </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </DataList>

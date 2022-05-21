@@ -1,0 +1,76 @@
+﻿@import"../wwwroot/css/ColorStyles.scss";
+
+.leveltimeout {
+    height: 100vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3cec1;
+
+    #home-btn {
+        color: $white;
+        font-size: 25px;
+        margin-bottom:-28px;
+    }
+
+    .wrap {
+        margin: auto;
+
+        .cover {
+            text-align: center;
+            margin: auto;
+
+            .circle {
+                border-radius: 50%;
+                margin: auto;
+                border: 1px solid $secondarycolour;
+                height: 310px;
+                width: 310px;
+                box-shadow: 2px 2px 20px #c16c6c;
+                background-color: $secondarycolour;
+                display: flex;
+
+                .circle-al {
+                    margin: auto;
+
+                    h1 {
+                        color: $tertiarycolour;
+                        margin-top: 20px;
+
+                        b {
+                            letter-spacing: 3px
+                        }
+                    }
+
+                    #fail {
+                        font-size: 50px;
+                        color: $tertiarycolour;
+                        display: block;
+                    }
+
+                    h4 {
+                        margin-bottom: 20px;
+                    }
+
+                    .score {
+                        margin-top: 10px;
+                        color: $tertiarycolour;
+                    }
+
+                    .high-score {
+                        color: $primarycolour;
+                    }
+                }
+            }
+
+            .cont {
+                border-radius: $round-corner;
+                color: $white;
+                background-color: $tertiarycolour;
+                border: none;
+                padding: 15px 15px;
+                margin-top: 20px;
+            }
+        }
+    }
+}

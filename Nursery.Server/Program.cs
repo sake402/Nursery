@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Components.Web;
 using LivingThing.Interface.Server.Portal;
 using LivingThing.Core.Frameworks.Portal;
 using LivingThing.Core.Frameworks.Common.Services;
+using LivingThing.Core.Community.All;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddCoreServerLibraries();
 builder.Services.AddGidiClient();
+// builder.Services.AddCommunity();
 builder.Services.AddSingleton<IConfiguration>(x => builder.Configuration);
 builder.Services.AddSingleton<IRootPortalConfiguration, RootPortalConfiguration>();
 builder.Services.AddScoped<ServiceFactory>(x => (type, op) => !op ? x.GetRequiredService(type) : x.GetService(type));

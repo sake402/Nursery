@@ -1,0 +1,25 @@
+﻿@inherits BaseInputFieldProvider<ErrandDetailsWizardStep>
+<div>
+    <h3>Submission of Letter</h3>
+    <div class="hx-09">
+
+    </div>
+    <div class="row mgb">
+        <div class="col-5 text-right fw-bold">Title:</div>
+        <div class="col-5"> @Value.Root.Title.Title</div>
+    </div>
+    <div class="row mgb">
+        <div class="col-5 text-right fw-bold">Average Distance:</div>
+        <div class="col-5"> @Value.Root.DeliveryLocation.Location.DistanceTo(@Value.Root.PickupLocation.Location).KM</div>
+    </div>
+    <div class="row mgb ">
+        <div class="col-5 text-right fw-bold">Expiry Time:</div>
+        <div class="col-5"> @Value.Root.Expiry.ExpiryTime</div>
+    </div>
+    <h3 class="mgb-0">Contract Terms:</h3>
+    <p class="bdb mg-0">
+        I need someone to drop a letter at shoprite beside
+        obalende bus stop as sson as possible.
+    </p>
+    <Button class=" bg-primary pd-0 round hx-05 wx-05 r-0 b-0 pos-abs mgb-25 mgr-10 fw-bold">Send</Button>
+</div>

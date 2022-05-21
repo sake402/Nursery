@@ -6,19 +6,38 @@
 
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
+    <Content Remove="FinanceReport\Pages\Login.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Include="FinanceReport\Pages\Login.razor" />
   </ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="LivingThing.Core.IdentityManager.Client.Blazor" Version="1.0.1"></PackageReference>
-		<PackageReference Include="LivingThing.Core.Frameworks.Client.Blazor" Version="1.0.1"></PackageReference>
+    <PackageReference Include="AngleSharp" Version="0.16.1"></PackageReference>
+    <PackageReference Include="AngleSharp.Css" Version="0.16.4"></PackageReference>
+    <PackageReference Include="AngleSharp.Js" Version="0.15.0"></PackageReference>
+		<PackageReference Include="LivingThing.Core.IdentityManager.Client.Blazor" Version="1.0.16"></PackageReference>
+		<PackageReference Include="LivingThing.Core.Frameworks.Client.Blazor" Version="1.0.16"></PackageReference>
+		<PackageReference Include="LivingThing.Core.Community.All.Client.Blazor" Version="1.0.16"></PackageReference>
 	</ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Nursery.Core.Common\Nursery.Core.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="FinanceReport\Models\" />
+    <Folder Include="FinanceReport\Shared\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="FinanceReport\Pages\Login.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="FinanceReport\Pages\Login.razor" />
   </ItemGroup>
 
 </Project>

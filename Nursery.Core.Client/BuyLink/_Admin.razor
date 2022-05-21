@@ -1,0 +1,111 @@
+@page "/BuyLink/Admin"
+@namespace LivingThing.Core.Community.BuyLink.Client.Pages
+@using LivingThing.Core.Frameworks.Common.Types
+@using LivingThing.Core.Community.BuyLink.Common.Models
+@using LivingThing.Core.Community.BuyLink.Client.Shared
+
+@layout NoLayout
+
+<Application BasePath="BuyLink/Dashboard" 
+    Features="ApplicationFeatures.Default&~ApplicationFeatures.Authorization"
+    InitialViewIndex="0">
+    <ChildContent>
+        <ApplicationPage Name="" Class="pd">
+            <Title>Dashboard</Title>
+            <Icon><i class="mdi mdi-mac"></i></Icon>
+            <ChildContent>
+                <AutoDashboard Target="dashboard"></AutoDashboard>
+                <h2>Pending Orders</h2>
+                <DataTable Class="mgt" 
+                    Features="DataListFeatures.Default|DataListFeatures.Selectable|DataListFeatures.Bordered" 
+                    TModel="CommunityBuyLinkOrderModel" 
+                    Models="@Orders" 
+                    Context="order">
+                    <ChildContent>
+                        <DataTableColumnsFromSchema TModel="CommunityBuyLinkOrderModel"></DataTableColumnsFromSchema>
+                    </ChildContent>
+                    <Details Context="detail">
+                        <_BuyLinkAdminOrderDetails ViewModel="detail"></_BuyLinkAdminOrderDetails>
+                    </Details>
+                </DataTable>
+            </ChildContent>
+        </ApplicationPage>
+        <ApplicationPage Name="Orders">
+            <Title>Orders</Title>
+            <Icon><i class="mdi mdi-list-status"></i></Icon>
+            <ChildContent>
+                <DataTable Class="bdt" 
+                    Features="DataListFeatures.Default|DataListFeatures.Selectable|DataListFeatures.Bordered" 
+                    TModel="CommunityBuyLinkOrderModel" 
+                    Models="Orders" 
+                    Context="order">
+                    <ChildContent>
+                        <DataTableColumnsFromSchema TModel="CommunityBuyLinkOrderModel"></DataTableColumnsFromSchema>
+                    </ChildContent>
+                    <Details>
+                        <div class="bg-card clip">
+                        <h3 class="mgx">Order Details</h3>
+
+                        <h5 class="mgx">Products in this order</h5>
+                        <DataTable Class="mgt" 
+                            Features="DataListFeatures.Default|DataListFeatures.Selectable|DataListFeatures.Bordered" 
+                            TModel="CommunityBuyLinkPostModel" 
+                            Models="@(Enumerable.Range(1,10).Select(r=> new CommunityBuyLinkPostModel().RandomizeProperties()).ToList())" 
+                            Context="product">
+                            <ChildContent>
+                                <DataTableColumnsFromSchema TModel="CommunityBuyLinkPostModel"></DataTableColumnsFromSchema>
+                            </ChildContent>
+                            <Details>
+                                <Tabs Theme="Theme.Primary" InitialViewIndex="0" 
+                                    Class="bdt" 
+                                    TabsFeatures="TabsFeatures.Default|TabsFeatures.TabsSelectedBorder">
+                                    <Tab>
+                                        <Title Context="tt">
+                                            Info
+                                        </Title>
+                                        <ChildContent Context="cc">
+                                            <div class="row">
+                                                <div class="col-5">
+                                                    <Media Class="mahx-4"></Media>
+                                                </div>
+                                                <div class="col-5 stack pd">
+                                                    <h4>Title</h4>
+                                                    <p>Description</p>
+                                                    I expect things needed to manage the product /query user for more info, set product price
+                                                </div>
+                                            </div>
+                                        </ChildContent>
+                                    </Tab>
+                                    <Tab>
+                                        <Title Context="tt">
+                                            Source
+                                        </Title>
+                                        <ChildContent Context="cc">
+
+                                        </ChildContent>
+                                    </Tab>
+                                </Tabs>
+                            </Details>
+                        </DataTable>
+                        </div>
+                    </Details>
+                </DataTable>
+            </ChildContent>
+        </ApplicationPage>
+        <ApplicationPage Name="Products">
+            <Title>Products</Title>
+            <Icon><i class="mdi mdi-shield"></i></Icon>
+            <ChildContent></ChildContent>
+        </ApplicationPage>
+        <ApplicationPage Name="Accounts">
+            <Title>Accounts</Title>
+            <Icon><i class="mdi mdi-account"></i></Icon>
+            <ChildContent></ChildContent>
+        </ApplicationPage>
+        <ApplicationPageFactory TModel="CommunityAccountModel" Name="Account">
+            <Title>Account</Title>
+            <Icon><i class="mdi mdi-account-details"></i></Icon>
+            <ChildContent></ChildContent>
+        </ApplicationPageFactory>
+    </ChildContent>
+</Application>

@@ -1,0 +1,39 @@
+@page "/IPTV/Series"
+
+<VideoSearch>
+    <SelectSheet Class="hf" TModel="int" Side="SideBarSide.Bottom" 
+        SideBarFeatures="SideBarFeatures.Default|SideBarFeatures.Dynamic|SideBarFeatures.Cover|SideBarFeatures.BackDrop|SideBarFeatures.BackDropClose|SideBarFeatures.Closable">
+        <ChildContent>
+            <DataList TModel="int" Models="Enumerable.Range(1,100)"
+                        GridWidth="150"
+                        GridGap="10"
+                        Class="hf"
+                        Features="DataListFeatures.Default|DataListFeatures.Selectable"
+                        li-class="corner clip pos-rel">
+                        <img class="hx-2 d-block mgx-a" src="https://image.tmdb.org/t/p/original/tYmh36DP4rEmRAr3exAuM9CJTOG.jpg">
+                        <div class="pos-abs b-0 l-0 r-0 bg-dark-05 text-center pd">Movie Title</div>
+                @* <Media
+                    Height="150"
+                    Width="100" 
+                    Class="wx-1 hx-15" 
+                    Features="MediaFeatures.Default&~MediaFeatures.Responsive"
+                    Url="https://image.tmdb.org/t/p/original/tYmh36DP4rEmRAr3exAuM9CJTOG.jpg"></Media> *@
+            </DataList>
+        </ChildContent>
+        <Selected Context="selected">
+            <DataList TModel="int" Models="Enumerable.Range(1,100)"
+                        Class="mg-10"
+                        Features="DataListFeatures.Default|DataListFeatures.CarouselHorizontalView"
+                        li-class="pd corner clip pos-rel">
+                        <img class="hx-2 d-block mgx-a" src="https://image.tmdb.org/t/p/original/tYmh36DP4rEmRAr3exAuM9CJTOG.jpg">
+                        <div class="pos-abs b-0 l-0 r-0 bg-dark-05 text-center pd">Movie Title</div>
+                @* <Media
+                    Height="150"
+                    Width="100" 
+                    Class="wx-1 hx-15" 
+                    Features="MediaFeatures.Default&~MediaFeatures.Responsive"
+                    Url="https://image.tmdb.org/t/p/original/tYmh36DP4rEmRAr3exAuM9CJTOG.jpg"></Media> *@
+            </DataList>
+        </Selected>
+    </SelectSheet>
+</VideoSearch>
